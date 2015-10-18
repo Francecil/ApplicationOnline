@@ -23,16 +23,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class="leftcontent" id="leftcontent">
-				<ul>
-					<div id="select" style="position:absolute; right:0px; top:0px;"></div>
-					<li onClick="move('select', {top:0});tab(this)">Basic information</li>
-					<li onClick="move('select', {top:60});tab(this)">Education situation</li>
-					<li onClick="move('select', {top:120});tab(this)">Career situation</li>
-					<li onClick="move('select', {top:180});tab(this)">Self-introduction</li>
-				</ul>
-			</div>
-			<div class="rightcontent" id="rightcontent">
+			<div class="rightcontent" style="margin:0 auto;float:none;">
 				<div class="selected tab">
 					<span class="title">
 						<h1>STEP1</h1>
@@ -54,14 +45,9 @@
 								<span>ADDRESS:</span><textarea rows="6" cols="60" ></textarea>
 							</div>
 						</div>
-						<div class="formbutton">
-							<input type="button" class="btn back" value="back" disabled="disabled"/>
-							<input type="button" class="btn next" value="next" onclick="move('select', {top:60});tab2(this)"/>
-							<input type="button" class="btn save" value="save" onclick="alert('save success!');"/>
-						</div>
 					</form>
 				</div>
-				<div class="tab">
+				<div class="selected tab">
 					<span class="title">
 						<h1>STEP2</h1>
 					</span>
@@ -71,14 +57,9 @@
 								<span>Education situation:</span><textarea rows="6" cols="60" ></textarea>
 							</div>
 						</div>
-						<div class="formbutton">
-							<input type="button" class="btn back" value="back" onclick="move('select', {top:0});tab3(this)"/>
-							<input type="button" class="btn" value="next" onclick="move('select', {top:120});tab2(this)"/>
-							<input type="button" class="btn" value="save"/>
-						</div>
 					</form>
 				</div>
-				<div class="tab">
+				<div class="selected tab">
 					<span class="title">
 						<h1>STEP3</h1>
 					</span>
@@ -88,14 +69,9 @@
 								<span>Career situation:</span><textarea rows="6" cols="60" ></textarea>
 							</div>
 						</div>
-						<div class="formbutton">
-							<input type="button" class="btn back" value="back"  onclick="move('select', {top:60});tab3(this)"/>
-							<input type="button" class="btn" value="next" onclick="move('select', {top:180});tab2(this)"/>
-							<input type="button" class="btn" value="save" onclick="alert('save success!');"/>
-						</div>
 					</form>
 				</div>
-				<div class="tab">
+				<div class="selected tab">
 					<span class="title">
 						<h1>STEP4</h1>
 					</span>
@@ -104,11 +80,6 @@
 							<div class="form-item textarea">
 								<span>Self-introduction:</span><textarea rows="6" cols="60" ></textarea>
 							</div>
-						</div>
-						<div class="formbutton">
-							<input type="button" class="btn back" value="back" onclick="move('select', {top:120});tab3(this)"/>
-							<input type="button" class="btn" value="finish"/>
-							<input type="button" class="btn" value="save" onclick="alert('save success!');"/>
 						</div>
 					</form>
 				</div>
