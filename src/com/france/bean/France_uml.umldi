@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagrams:Diagrams xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.topcased.org/DI/1.0" xmlns:diagrams="http://www.topcased.org/Diagrams/1.0" xmi:id="_sUX0AHWFEeWJOtXa03stcg" activeDiagram="_sUX0AXWFEeWJOtXa03stcg">
+  <model href="France_uml.uml#_qb8akM37EdqwVrslYOdUDA"/>
+  <diagrams xmi:id="_sUX0AXWFEeWJOtXa03stcg" position="0,0" size="100,100" name="France_uml" zoom="0.5" viewport="-83,138">
+    <property xmi:id="_sUmdgHWFEeWJOtXa03stcg" key="pageFormatName" value=""/>
+    <property xmi:id="_sUmdgXWFEeWJOtXa03stcg" key="diagramWidth" value="1287"/>
+    <property xmi:id="_sUmdgnWFEeWJOtXa03stcg" key="diagramHeight" value="1376"/>
+    <property xmi:id="_sUmdg3WFEeWJOtXa03stcg" key="pageMarginName" value="A4"/>
+    <property xmi:id="_sUmdhHWFEeWJOtXa03stcg" key="diagramTopMargin" value="20"/>
+    <property xmi:id="_sUmdhXWFEeWJOtXa03stcg" key="diagramBottomMargin" value="20"/>
+    <property xmi:id="_sUmdhnWFEeWJOtXa03stcg" key="diagramLeftMargin" value="20"/>
+    <property xmi:id="_sUmdh3WFEeWJOtXa03stcg" key="diagramRightMargin" value="20"/>
+    <property xmi:id="_sUmdiHWFEeWJOtXa03stcg" key="orientation" value="portrait"/>
+    <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_sUX0AnWFEeWJOtXa03stcg" presentation="org.topcased.modeler.uml.classdiagram">
+      <element href="France_uml.uml#_qb8akM37EdqwVrslYOdUDA"/>
+    </semanticModel>
+    <contained xsi:type="di:GraphNode" xmi:id="_tkCsIHWFEeWJOtXa03stcg" position="34,34" size="1178,1267">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkCsIXWFEeWJOtXa03stcg">
+        <element href="France_uml.uml#_tf3WwXWFEeWJOtXa03stcg"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_tkEhUHWFEeWJOtXa03stcg" position="15,11" size="1148,1206">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkEhUXWFEeWJOtXa03stcg">
+          <element href="France_uml.uml#_tf3WwnWFEeWJOtXa03stcg"/>
+        </semanticModel>
+        <contained xsi:type="di:GraphNode" xmi:id="_tkFvcHWFEeWJOtXa03stcg" position="15,11" size="1118,1145">
+          <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkFvcXWFEeWJOtXa03stcg">
+            <element href="France_uml.uml#_tf390HWFEeWJOtXa03stcg"/>
+          </semanticModel>
+          <contained xsi:type="di:GraphNode" xmi:id="_tkG9kHWFEeWJOtXa03stcg" position="378,503" size="138,-1">
+            <anchorage xmi:id="_tkYqYHWFEeWJOtXa03stcg" graphEdge="_tkafkHWFEeWJOtXa03stcg _nOdZa3WhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkG9kXWFEeWJOtXa03stcg">
+              <element href="France_uml.uml#_tf390XWFEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkG9knWFEeWJOtXa03stcg">
+              <property xmi:id="_tkG9k3WFEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkG9lHWFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf390XWFEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkG9lXWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkG9lnWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_th_dsHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkG9l3WFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkG9mHWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiB58HWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkG9mXWFEeWJOtXa03stcg">
+              <property xmi:id="_tkG9mnWFEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkG9m3WFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf390XWFEeWJOtXa03stcg"/>
+              </semanticModel>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_tkKA4HWFEeWJOtXa03stcg" position="473,344" size="250,-1">
+            <anchorage xmi:id="_tkWOIHWFEeWJOtXa03stcg" graphEdge="_tkYDUHWFEeWJOtXa03stcg _nOdZZnWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA4XWFEeWJOtXa03stcg">
+              <element href="France_uml.uml#_tf4k4HWFEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkKA4nWFEeWJOtXa03stcg">
+              <property xmi:id="_tkKA43WFEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA5HWFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf4k4HWFEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA5XWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA5nWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiDvIHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA53WFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA6HWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiFkUHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA6XWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA6nWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiHZgHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA63WFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA7HWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiInoHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkKA7XWFEeWJOtXa03stcg">
+              <property xmi:id="_tkKA7nWFEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA73WFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf4k4HWFEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA8HWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA8XWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiJ1wHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA8nWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA83WFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiLq8HWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA9HWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA9XWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiMSAHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA9nWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA93WFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiNgIHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA-HWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA-XWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiOuQHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkKA-nWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkKA-3WFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiP8YHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_tkRVoHWFEeWJOtXa03stcg" position="560,550" size="180,-1">
+            <anchorage xmi:id="_tkWOIXWFEeWJOtXa03stcg" graphEdge="_tkYDUHWFEeWJOtXa03stcg _tkafkHWFEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVoXWFEeWJOtXa03stcg">
+              <element href="France_uml.uml#_tf6aEHWFEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkRVonWFEeWJOtXa03stcg">
+              <property xmi:id="_tkRVo3WFEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVpHWFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf6aEHWFEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVpXWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVpnWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiRxkHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVp3WFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVqHWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiS_sHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVqXWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVqnWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiU04HWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_tkRVq3WFEeWJOtXa03stcg">
+              <property xmi:id="_tkRVrHWFEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVrXWFEeWJOtXa03stcg">
+                <element href="France_uml.uml#_tf6aEHWFEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVrnWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVr3WFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiVb8HWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVsHWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVsXWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiWqEHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVsnWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVs3WFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiXRIHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_tkRVtHWFEeWJOtXa03stcg" position="124,177">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkRVtXWFEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_tiYfQHWFEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_tkYDUHWFEeWJOtXa03stcg" anchor="_tkWOIHWFEeWJOtXa03stcg _tkWOIXWFEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkYDUXWFEeWJOtXa03stcg">
+              <element href="France_uml.uml#_tjNlsHWFEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_tkafkHWFEeWJOtXa03stcg" anchor="_tkYqYHWFEeWJOtXa03stcg _tkWOIXWFEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_tkafkXWFEeWJOtXa03stcg">
+              <element href="France_uml.uml#_tjOMwXWFEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nNa3kHWhEeWJOtXa03stcg" position="441,806" size="250,-1">
+            <anchorage xmi:id="_nOToZ3WhEeWJOtXa03stcg" graphEdge="_nOdZYHWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3kXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzhw5HWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNa3knWhEeWJOtXa03stcg">
+              <property xmi:id="_nNa3k3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3lHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5HWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNa3lXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3lnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m16WgnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNa3l3WhEeWJOtXa03stcg">
+              <property xmi:id="_nNa3mHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3mXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5HWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNa3mnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3m3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m16Wg3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNa3nHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3nXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2NRcHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNa3nnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNa3n3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2NRc3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nNkBgHWhEeWJOtXa03stcg" position="266,11" size="663,-1">
+            <anchorage xmi:id="_nOToYXWhEeWJOtXa03stcg" graphEdge="_nOToYnWhEeWJOtXa03stcg _nOToZXWhEeWJOtXa03stcg _nOdZYHWhEeWJOtXa03stcg _nOdZY3WhEeWJOtXa03stcg _nOdZaHWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBgXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzhw5XWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNkBgnWhEeWJOtXa03stcg">
+              <property xmi:id="_nNkBg3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBhHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBhXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBhnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2NRdXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBh3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBiHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2XCcHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBiXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBinWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2XCcXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBi3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBjHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2XCcnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBjXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBjnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2XCc3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNkBj3WhEeWJOtXa03stcg">
+              <property xmi:id="_nNkBkHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBkXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBknWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBk3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2gMYHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBlHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBlXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2gMYnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBlnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBl3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2gMZHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBmHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBmXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2gMZnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBmnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBm3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2gMaHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBnHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBnXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9YHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBnnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBn3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9YnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNkBoHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNkBoXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9ZHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nNtygHWhEeWJOtXa03stcg" position="160,219" size="250,-1">
+            <anchorage xmi:id="_nOToYHWhEeWJOtXa03stcg" graphEdge="_nOToYnWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtygXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzhw5nWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNtygnWhEeWJOtXa03stcg">
+              <property xmi:id="_nNtyg3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyhHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5nWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyhXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyhnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9ZnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNtyh3WhEeWJOtXa03stcg">
+              <property xmi:id="_nNtyiHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyiXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw5nWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyinWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyi3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9Z3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyjHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyjXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2p9aXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyjnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyj3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2zuYHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nNtykHWhEeWJOtXa03stcg" position="692,686" size="411,-1">
+            <anchorage xmi:id="_nOdZZXWhEeWJOtXa03stcg" graphEdge="_nOdZZnWhEeWJOtXa03stcg _nOdZaHWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtykXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzhw53WhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNtyknWhEeWJOtXa03stcg">
+              <property xmi:id="_nNtyk3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtylHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw53WhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtylXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtylnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2zuYnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyl3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtymHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2zuY3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtymXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtymnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m2zuZHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtym3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtynHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m284UHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtynXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtynnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m284UXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nNtyn3WhEeWJOtXa03stcg">
+              <property xmi:id="_nNtyoHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyoXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw53WhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyonWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyo3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m284UnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtypHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtypXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpUHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtypnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyp3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpUnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyqHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyqXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpVHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyqnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyq3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpVnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyrHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyrXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpWHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtyrnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtyr3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3GpWnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nNtysHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nNtysXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3PzQHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nOAtcHWhEeWJOtXa03stcg" position="423,924" size="187,-1">
+            <anchorage xmi:id="_nOdZbXWhEeWJOtXa03stcg" graphEdge="_nOnKYHWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtcXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzhw6XWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOAtcnWhEeWJOtXa03stcg">
+              <property xmi:id="_nOAtc3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtdHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw6XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtdXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtdnWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3ZkSHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtd3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAteHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVQHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAteXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtenWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVQXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOAte3WhEeWJOtXa03stcg">
+              <property xmi:id="_nOAtfHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtfXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzhw6XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtfnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtf3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVQnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtgHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtgXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVRHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtgnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtg3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVRnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAthHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAthXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3jVSHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nOAthnWhEeWJOtXa03stcg" position="15,570" size="362,-1">
+            <anchorage xmi:id="_nOdZYnWhEeWJOtXa03stcg" graphEdge="_nOdZY3WhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAth3WhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzrh4HWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOAtiHWhEeWJOtXa03stcg">
+              <property xmi:id="_nOAtiXWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtinWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh4HWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAti3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtjHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3sfMHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOAtjXWhEeWJOtXa03stcg">
+              <property xmi:id="_nOAtjnWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtj3WhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh4HWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtkHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtkXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3sfMXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtknWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtk3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3sfM3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOAtlHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOAtlXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3sfNXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nOKecHWhEeWJOtXa03stcg" position="116,806" size="306,-1">
+            <anchorage xmi:id="_nOdZanWhEeWJOtXa03stcg" graphEdge="_nOdZa3WhEeWJOtXa03stcg _nOnKYHWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKecXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzrh4XWhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOKecnWhEeWJOtXa03stcg">
+              <property xmi:id="_nOKec3WhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKedHWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh4XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKedXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKednWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m3sfN3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKed3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKeeHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QMHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKeeXWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKeenWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QMXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOKee3WhEeWJOtXa03stcg">
+              <property xmi:id="_nOKefHWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKefXWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh4XWhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKefnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKef3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QMnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKegHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKegXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QNHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKegnWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKeg3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QNnWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKehHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKehXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m32QOHWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphNode" xmi:id="_nOKehnWhEeWJOtXa03stcg" position="274,688" size="264,-1">
+            <anchorage xmi:id="_nOToZHWhEeWJOtXa03stcg" graphEdge="_nOToZXWhEeWJOtXa03stcg"/>
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKeh3WhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_mzrh43WhEeWJOtXa03stcg"/>
+            </semanticModel>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOKeiHWhEeWJOtXa03stcg">
+              <property xmi:id="_nOKeiXWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="37"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKeinWhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh43WhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKei3WhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKejHWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m4S8InWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+            <contained xsi:type="di:GraphNode" xmi:id="_nOKejXWhEeWJOtXa03stcg">
+              <property xmi:id="_nOKejnWhEeWJOtXa03stcg" key="eStructuralFeatureID" value="47"/>
+              <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKej3WhEeWJOtXa03stcg">
+                <element href="France_uml.uml#_mzrh43WhEeWJOtXa03stcg"/>
+              </semanticModel>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKekHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKekXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m4S8I3WhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKeknWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKek3WhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_m4S8JXWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+              <contained xsi:type="di:GraphNode" xmi:id="_nOKelHWhEeWJOtXa03stcg" position="325,71">
+                <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOKelXWhEeWJOtXa03stcg">
+                  <element href="France_uml.uml#_nLou4HWhEeWJOtXa03stcg"/>
+                </semanticModel>
+              </contained>
+            </contained>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOToYnWhEeWJOtXa03stcg" anchor="_nOToYHWhEeWJOtXa03stcg _nOToYXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOToY3WhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfsHWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOToZXWhEeWJOtXa03stcg" anchor="_nOToZHWhEeWJOtXa03stcg _nOToYXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOToZnWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfsnWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOdZYHWhEeWJOtXa03stcg" anchor="_nOToZ3WhEeWJOtXa03stcg _nOToYXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOdZYXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhftHWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOdZY3WhEeWJOtXa03stcg" anchor="_nOdZYnWhEeWJOtXa03stcg _nOToYXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOdZZHWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhftnWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOdZZnWhEeWJOtXa03stcg" anchor="_tkWOIHWFEeWJOtXa03stcg _nOdZZXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOdZZ3WhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfuHWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOdZaHWhEeWJOtXa03stcg" anchor="_nOToYXWhEeWJOtXa03stcg _nOdZZXWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOdZaXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfunWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOdZa3WhEeWJOtXa03stcg" anchor="_tkYqYHWFEeWJOtXa03stcg _nOdZanWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOdZbHWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfwHWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+          <contained xsi:type="di:GraphEdge" xmi:id="_nOnKYHWhEeWJOtXa03stcg" anchor="_nOdZbXWhEeWJOtXa03stcg _nOdZanWhEeWJOtXa03stcg">
+            <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_nOnKYXWhEeWJOtXa03stcg">
+              <element href="France_uml.uml#_nMhfwnWhEeWJOtXa03stcg"/>
+            </semanticModel>
+          </contained>
+        </contained>
+      </contained>
+    </contained>
+  </diagrams>
+</diagrams:Diagrams>

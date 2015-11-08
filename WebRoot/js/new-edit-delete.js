@@ -1,0 +1,57 @@
+var index=0;
+var add = function(){
+	var oNew =document.getElementById('new');
+	var aText2 = new Array();
+	var aLi = oNew.getElementsByTagName('li');
+	aText2[0]=$("#lean_ad").val();
+	aText2[1]=$("#lean_edoa").val();
+	aText2[2]=$("#lean_tgs").val();
+	var oSelect = document.getElementById('lean_el');
+	aText2[3]=oSelect.value;
+//	alert(oSelect.value);
+	var newli=document.createElement("li");
+	var newdiv1 =document.createElement("div");
+	var newdiv2 =document.createElement("div");
+	var newdiv3 =document.createElement("div");
+	var newdiv4 =document.createElement("div");
+	var newdiv5 =document.createElement("div");
+	newdiv1.className = "Admission-date ed_item";
+	newdiv2.className = "End-academic  ed_item";
+	newdiv3.className = "Graduation-school ed_item";
+	newdiv4.className = "Education-level ed_item";
+	newdiv5.className = "Operation";
+//	alert(window.index);
+    var newcont1=aText2[0]+"<input type='hidden' name='study.lists["+window.index+"].startTime' value='"+aText2[0]+"' />";
+    var newcont2=aText2[1]+"<input type='hidden' name='study.lists["+window.index+"].endTime' value='"+aText2[1]+"' />";
+    var newcont3=aText2[2]+"<input type='hidden' name='study.lists["+window.index+"].school' value='"+aText2[2]+"' />";
+    var newcont4=aText2[3]+"<input type='hidden' name='study.lists["+window.index+"].level' value='"+aText2[3]+"' />";
+    window.index++;
+	var newcont5="<a class='edit_2 operation'  onclick='getcontent(this);' rel='leanModal' href='#edit'>edit</a><span class='delete_2 operation' onclick='Delete(this);'>delete</span>";
+//	newdiv1.innerHTML=aText2[0];
+//	newdiv2.innerHTML=aText2[1];
+//	newdiv3.innerHTML=aText2[2];
+//	newdiv4.innerHTML=aText2[3];
+	newdiv1.innerHTML=newcont1;
+	newdiv2.innerHTML=newcont2;
+	newdiv3.innerHTML=newcont3;
+	newdiv4.innerHTML=newcont4;
+	newdiv5.innerHTML=newcont5;
+    newli.appendChild(newdiv1);
+    newli.appendChild(newdiv2);
+    newli.appendChild(newdiv3);
+    newli.appendChild(newdiv4);
+    newli.appendChild(newdiv5);
+	
+	$("#education").append(newli);
+	$(document).ready(function () { 
+		$('a[rel*=leanModal]').leanModal({top: 100, closeButton: ".modal_close"}); 
+		});
+	$("#lean_ad").attr("value","");
+	$("#lean_edoa").attr("value","");
+	$("#lean_tgs").attr("value","");
+	$("#lean_el").attr("value","");
+	};
+var Delete = function(element){
+	var par = element.parentNode.parentNode;
+	$(par).remove();
+};

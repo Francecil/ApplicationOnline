@@ -1,0 +1,376 @@
+-39
+注意配置lazy=true时 在jsp中通过对象再去拿list是会报session不存在的错误的
+org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.france.bean.StudyInfoApplication.details, could not initialize proxy - no Session
+要么在action中去取一遍 要不lazy=false;
+studyinfo中的配置把fetch = FetchType.Lazy 改为fetch = FetchType.EAGER (看业务逻辑 我这边是一般取studyinfo detail也要拿的 所以直接配置EAGER)
+@OneToMany( fetch = FetchType.EAGER, mappedBy = "studyinfoApplication")
+	public List<StudyDetail> getDetails() {
+		return details;
+	}
+-38
+<s:property value="baseApplication.basicInfoApplication.sex"/> 值栈中的直接名字不需要加# 如果是在jsp中new出来的就要加(不考虑session等)
+<s:if test='#sex=="male"'> 字符串判断
+-37
+	@OneToOne(cascade=CascadeType.MERGE)  我在baseApplication 和 basicInfoApplication分别配置该项
+	当base更新数据的时候 basic也会跟着更新 (注 若他们之间配置的直接外键(base存在一个字段为basic的外键referencedColumnName="basic_id")没有配置将没有效果)
+	最后采用的是直接对basic等每个子申请进行更新，而不是更新base 代码量一样 效率更高
+-36
+@DynamicUpdate(true)
+@DynamicInsert(true)
+配置注解后 主要对象的数据不变 就不会去数据库操作
+-35
+如下：
+success: function(data) {
+				//把数据放添加到list中
+				var li_id='#sd'+sid;
+				var oLi=$(li_id).children(".ed_item");//得到li的所有该class的子节点
+				//oLi.next();注意这样将跳到第二个 再给其html()将赋值到第二个及之后
+//				var startT=oLi.next(); //该步骤不可取
+//				startT.html(startTime);
+				//为防止将后面的元素也给得到 加选择器 注意next(是匹配后面所有满足条件的元素 如oLi.html(startTime); 该步骤是对四个值都赋startTime的值)
+				oLi.html(startTime);//next()方法返回的是所有满足条件的节点
+				var endT=oLi.next(".ed_item");//这样如选择器为.Admission-date的话就只匹配一个
+				endT.html(endTime);
+				var schoolT=endT.next(".ed_item");
+				schoolT.html(school);
+				var levelT=schoolT.next(".ed_item");
+				levelT.html(level);
+				 $(document).ready(function () { 
+					$('a[rel*=leanModal]').leanModal({top: 100, closeButton: ".modal_close"}); 
+					});
+				alert("更新成功");
+			},
+-34
+编辑界面经过两次跳转 丢失了id 所以要更新后的li就要给每个li设置id id与后台传来的sid绑定在一起
+<li id='sd"+sid+"'>"
+-33
+更新select 等用法
+ //js语法
+	  var aText = new Array();
+	  var oLi=this.parentNode.parentNode;
+	  var aDiv = oLi.getElementsByTagName('div');
+	  var detail = $(oLi).find("input[name='detailID']").val();
+	  var oSelect = document.getElementById('edit_el_form');
+	  for (var i=0;i<(aDiv.length-1);i++)
+	  {
+			aText[i] = aDiv[i].innerText;
+	  }
+	  $("#edit_ad").val(aText[0]);
+	  $("#edit_edoa").val(aText[1]);
+	  $("#edit_tgs").val(aText[2]);
+	  for(var j=0;j<oSelect.length;j++){//给select赋值  
+			if(aText[i-1]==oSelect.options[j].value){  
+				oSelect.options[j].selected=true;
+				oSelect.value=oSelect.options[j].value;
+			} 
+			else oSelect.options[j].selected=false;
+		}  
+//      $("#edit_el").find("option[value='"+aText[3]+"']").attr("selected",true); 不能做到
+      $("#editDetailID").val(detail);
+
+-32http://www.jb51.net/article/29869.htm 
+Jquery弹出窗口插件 LeanModal的使用方法
+注意，在添加一次带有a[rel*=leanModal]'的控件后，还要再识别一次，用这个函数！
+$(document).ready(function () { 
+					$('a[rel*=leanModal]').leanModal({top: 100, closeButton: ".modal_close"}); 
+					});
+					//ajax成功返回后
+		$.ajax({
+			type: "post",
+			url: 'study.action?startTime='+startTime+'&endTime='+endTime+'&school='+school+'&level='+level+'&aid='+aid,
+			async: true,
+			data: params,
+			success: function(data) {
+			//把重新绑定事件监听的函数放这里
+			}
+-31
+js 中 this的作用域
+ $(document).on("click",".delete_2",function(){
+ 中的this和
+ $.ajax({
+		type: "post",
+		url: 'studyDelete.action?sid='+sid,
+		async: true,
+		data: params,
+		success: function(data) {
+		中的this是不一样的
+ 所以要删除一个节点
+ 	var par=this.parentNode.parentNode;//先去拿节点
+  	var inp=this.parentNode.parentNode.getElementsByTagName("input");
+  	var sid=$(inp).val();
+  	var params = $("#step2form").serialize();
+	$.ajax({
+		type: "post",
+		url: 'studyDelete.action?sid='+sid,
+		async: true,
+		data: params,
+		success: function(data) {
+//			alert(data);
+			alert("delete success");
+			$(par).remove();//把得到的节点删除 注意此处的this是function的作用域 this.parentNode是undifine的
+				
+		},
+-30,cascade = CascadeType.ALL
+在StudyInfo中
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "studyinfoApplication")
+	public List<StudyDetail> getDetails() {
+		return details;
+	}
+在StudyDetail
+@ManyToOne(optional = false,cascade = CascadeType.ALL) //left join true 为inner join()
+	@JoinColumn(name="pksinfoID")
+	public StudyInfoApplication getStudyinfoApplication() {
+		return studyinfoApplication;
+	}
+cascade = CascadeType.ALL当配置这个参数的时候 StudyDetail中元素删除的时候，studyinfo也会跟着删除。
+CascadeType.REMOVE只有A类删除时，会级联删除B类；  而CascadeType.ALL包含了左边这个。
+而且 CascadeType这个参数不是对应到数据库的，也就是说数据库方面不会有任何级联与这个有关，
+CascadeType是运行时才去判别的。
+-29
+@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="pkUserApplication", referencedColumnName="user_id")
+	public User getUser() {
+		return user;
+	}    referencedColumnName="user_id" 加上这个的话，删除不了baseApplication 外键关联 要把user删除后才能删base 在1 to many的情况下 many端不要配置该参数
+
+-28 @OneToOne(mappedBy = "baseApplication",fetch = FetchType.EAGER) mappedBy配置之后 就不会再出现那些 然后参照测试方法testBase 正确配置
+-27org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.france.bean.User.userRoles, could not initialize proxy - no Session
+
+-26 关于级联的建议:不要在hibernate中设置，CascadeType 而是在mysql客户端去设置cascade on delete等约束！！ hibernate有毒
+原来会出错：java.lang.ClassCastException: com.france.bean.Role_$$_javassist_0 cannot be cast to javassist.util.proxy.Proxy 
+未配置
+@JoinColumn(name = "ROLE_ID", nullable = false)
+	public Role getRole() {
+		return role;
+	}nullable = false 
+	导致
+	1	ID	int(11)			否	无	AUTO_INCREMENT	 修改 修改	 删除 删除	更多 显示更多操作
+	2	ROLE_ID	int(11)			是	NULL(改和下面一样)		 修改 修改	 删除 删除	更多 显示更多操作
+	3	USER_ID	int(11)			否	
+后面发现并不是上面的问题。。而是u.getUserRoles(); 是set不能用system.out.println()直接输出
+还是不是。。好像是role结构不能映射。。有毒。。。
+最后发现。。要把user 加载出来 role加载出来 然后才能去得到。。。
+如下：
+		User u=(User) session.get(User.class, 1);
+		Role ur=(Role) session.get(Role.class, 1);
+		System.out.println(ur.getUserRoles().size()); 成功得到
+-25百度说的：
+hibernate 自动生成的表是不可以实现的，
+你需要需修改数据库的外键属性，你用的是mysql的话，
+可以把生成的表右击属性，打开设计表，点到“外键”选项卡，把删除，更新改成CASCADE，就可以了
+其实不是，是加了两个javassist-3.11.0.GA.jar 和 javassist-3.18.1.GA.jar 删掉低版本的
+-24 为了图形化界面操作mysql, 
+出现问题：Forbidden  You don't have permission to access /phpmyadmin/ on this server  解决办法
+
+打开 XXX/wamp/alias/phpmyadmin.conf 文件，
+
+
+将
+
+<Directory "F:/Software/wamp/alias/phpmyadmin3.5.1/">
+Options Indexes FollowSymLinks MultiViews
+AllowOverride all
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+</Directory>
+
+修改成
+
+<Directory "F:/Software/wamp/apps/phpmyadmin3.5.1/">
+Options Indexes FollowSymLinks MultiViews
+AllowOverride all
+Order Deny,Allow
+Allow from all
+</Directory>
+
+保存，然后重启Wamp所有服务即可。
+-23
+CascadeType属性说明
+CascadeType.PERSIST只有A类新增时，会级联B对象新增。若B对象在数据库存（跟新）在则抛异常（让B变为持久态） 
+CascadeType.MERGE指A类新增或者变化，会级联B对象（新增或者变化） 
+CascadeType.REMOVE只有A类删除时，会级联删除B类； 
+CascadeType.ALL包含所有； 
+CascadeType.REFRESH没用过。 
+综上：大多数情况用CascadeType.MERGE就能达到级联跟新又不报错，用CascadeType.ALL时要斟酌下CascadeType.REMOVE 
+-22 show create table 表名;
+这个命令可以查看表的所有信息，包括一些字段类型，字段的约束，外键，主键，索引，字符编码等等。
+-21 @JoinColumn(name="pkStudy",nullable=true)//指定一个外键，也可以不指
+	public StudyInfoApplication getStudyInfoApplication() {
+		return studyInfoApplication;
+	}
+	把nullable从false改为true，那么执行这个的时候
+			StudyDetail s=studyDetailDAO.get(StudyDetail.class, sid);
+		studyDetailDAO.delete(s);
+		就不会因为上级(Base.studyinfo)没取到(null)而报错
+-20 alter table studyinfo modify studyinfoid int default 1; 修改字段类型 注意 主键应该默认null
+	@JoinColumn(name="pkIndividual",nullable=false)//指定一个外键，也可以不指更新表结构  这个不指
+-19 hibernate save一个对象就后 id就放到那个对象里面 了(hibernate对象持久化)，直接object.getId()就可以得到id了！不用在用jdbc的参数方法 见笔记2，并且不用管主键的生成策略
+-18 insert into 要支持?用法 要注意方法参数
+-17
+http://www.cnblogs.com/leejersey/p/3545372.html
+http://blog.csdn.net/azureternite/article/details/46413303 
+jQuery on()方法是官方推荐的绑定事件的一个方法。
+建议都使用on()方法
+一直不行，后面在已知选择器("#education")下选择 就可以("#sdf"是动态的)
+  $("#education").on("click","#sdf",function(){
+	  alert("helasdasdl");
+	  });
+	  或者("#education")改为
+-16 
+if(startTime.length==0||endTime.length==0||school.length==0||level.length==0){
+		  alert("infomation exist null");
+//		  exit(0);//throw exception exit is not design
+		  throw "empty";//防止代码中断 窗口消失
+	  }
+-15
+js 判断自趺床是否为空 startTime.length==0 由于我哟定义 不用考虑undifine
+
+-14 data: params, 不带data的话传不过去action
+-13
+ error:mappedBy reference an unknown target entity property
+ http://www.cnblogs.com/langtianya/p/3793557.html
+mappedBy = "studyinfoApplication"
+在one-to-many注解配置： @OneToMany (mappedBy = "studyinfoApplication"),mappedBy指向的是要关联的属性，而不是要关联的类!!，
+-12 input text的样式乱 用div+hidden的方式 <div id="edit2" 暂时修改功能不能实现
+-11 alert(window.index); 得到全局的index 
+
+-10 private List<StudyDetail> lists = new ArrayList<>(0); 后面带0与不带0的意义
+-9 ApplyAction DTO 与JSP表单对象关联，所以每次提交表单 所有的DTO都会new一遍，所以不能通过判断DTO是否为null 来返回当前操作的是哪个子表单
+即if(basic!=null)return 1; 不可取
+不过可以同通过
+if(basic!=null&&!"".equals(basic.getStep())&&basic.getStep()!=null)return 1; 用step再来判断一遍 因为new 的DTO step肯定为空
+倘若DTO是持久的 那就每次用完DTO后把DTO置null即可
+
+
+-8 <form id="step2form"> 用id不是用name
+	  var stepfrom="#"+stepID+"form";
+	  var params = $(stepfrom).serialize();
+-7
+alert(aid);
+				alert($("input[name='basic.haveApplied']").val());
+				$("input[name='basic.haveApplied']").val(aid);
+				$("input[name='study.haveApplied']").val(aid);
+				$("input[name='work.haveApplied']").val(aid);
+				$("input[name='individual.haveApplied']").val(aid);
+jquery对页面的取值和赋值 注意" 和 ' xx.xx 这种形式就需要引号 如果只要xx就不用
+-6
+error:java.sql.SQLException: Field 'basicInfoID' doesn't have a default value
+http://zhidao.baidu.com/link?url=TK8FbSH5DtLg9V07IBoE1vMGC2-_4m1cjA3YW4sTAqzcr92Z-qLuu_Y6LeusTFbrXko9DaHLMe0h52UkuwEO2_
+想得到id返回值：autoIncKey = pstmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS); 
+主键应该自增
+ alter table basicinfo change basicinfoid basicinfoid int(11) not null auto_increment;
+
+-5 action 方法上带throws Exception 会识别不出来
+
+-4
+ var params = $(stepfrom).serialize();
+	  alert(stepfrom);
+		$.ajax({
+			type: "post",
+			dataType: 'json',
+			url: 'apply-save.action',
+			async: true,
+			data: params, 
+之前：
+data: {
+				haveApplied : $('input[name=haveApplied]').val(),
+	            step :  newStep ,
+	            formvalue:$(stepfrom).serialize()
+			}, 由于参数名换掉 数据不能正确得到	所以采用dto的方式 把数据封装到一个对象中去basicform;		
+			
+-3 url: 'apply-save.action', jquery 提交表单 链接带action
+-2 b.isSubmitted 变量名区分大小写
+最新版Struts2+Hibernate+Spring整合
+    目前为止三大框架最新版本是：
+     struts2.3.16.1
+     hibernate4.3.4
+     spring4.0.2 
+     
+http://blog.csdn.net/lqclh502/article/details/23435463
+
+spring 使用quartz
+http://www.th7.cn/Program/java/201405/203901.shtml
+-1
+<property name="hbm2ddl.auto">update</property><!-- 自动建表 -->
+0
+manyTomany 
+@ManyToMany(cascade=CascadeType.ALL)
+@JoinTable(name="user_role",
+	joinColumns=@JoinColumn(name="user_id"),
+	inverseJoinColumns=@JoinColumn(name="role_id"))
+	
+	  @PrimaryKeyJoinColumn//这个注解只能写在主(生成ID)的一端
+1.
+java 插入数据库采用executeQuery形式也可以，还能得到返回值，是不是效率会比executeUpdate差？
+并不能用executeQuery 会报Can not issue data manipulation statements with executeQuery() 
+2.insert into 返回自增ID
+参考 http://www.thinksaas.cn/group/topic/73443/
+最有效的方法：注意mysql不同版本的写法
+int autoIncKey=-1;
+		try {
+			con = ConnectionFactory.getConnection();
+			ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);//mysql5.1.17驱动包
+
+后的写法
+			ps.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);//mysql5.1.17驱动包后的写
+
+法
+			ResultSet rs = ps.getGeneratedKeys();
+			
+			if (rs.next()) {
+				autoIncKey = rs.getInt(1);//取得ID
+3.地址写href="apply" <==> href="/{baseurl}/apply"
+
+4.做表单提交的时候，如果ID放request里而不是session 视安全情况对ID存放不同值域，由于用户会开多个页面，id
+
+放页面中，hidden
+haveApplied : $('input[name=haveApplied]').val(),
+
+
+5.最好是 开一个新表单，等save的时候再insert into ；就不会产生空表的情况了。
+
+6.一个简单的jquery   alert里面参数，$的用法  .XXX类的寻找 #的使用
+4个按钮 让他们处于同一个类 然后在获取具体的id
+$(document).ready(function(){
+  $(".save").click(function(){
+	  var stepID=$(this).attr("id");
+	  var stepfrom="#"+stepID+"form";
+		$.ajax({
+			type: "post",
+			url: 'apply',
+			async: true,
+			data: {
+				type : "save", 
+	            step :  stepID ,
+	            formvalue:$(stepfrom).serialize()
+			},
+			success: function(data) {
+				alert("");
+			}
+		});
+	});
+});
+
+
+7.每个页面都要save 都非null才能next ，save的页面值更新到baseapply 的current,
+下次申请就从current开始；
+8.参数化防止sql注入
+9.解决aid被拦截重新发送的危险  uid aid where issubmit=false的情况查询出来的才可以
+10.分层的好处，接口设计后，action层可以着手写代码 而不用考虑接口的实现
+11.filter怎么分（通过自定义黑白名单去控制）：
+   父BaseFilter Encode->LoginCheck->RoleCheck->Log
+
+12.
+request.getSession(true)：若存在会话则返回该会话，否则新建一个会话。
+request.getSession(false)：若存在会话则返回该会话，否则返回NULL
+13. PreparedStatement.setObject（）减小耦合
+14.resultSet列数可以通过resultSet.getMetaData().getColumnCount()很容易地得到
+15./向SQL中传参数的下标是从1开始的！
+16<result name="admin_success" type="redirectAction">
+				<param name="namespace">admin</param>
+				<param name="actionName">admin-showlist</param>
+			</result>
+17
+struts2 type="redirectAction"  使用范例讲解
+http://blog.sina.com.cn/s/blog_4fdb887b0101b0xc.html
