@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>ApplicationOnline</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
-  </context-param>
-  <!-- 
-    <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext-quartz.xml</param-value>
-  </context-param>
-   -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>ApplicationOnline</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<!-- <context-param> <param-name>contextConfigLocation</param-name> <param-value>classpath:applicationContext-quartz.xml</param-value> 
+		</context-param> -->
 
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-    <!-- 登录判断过滤器 -->
-  <filter>  
-   <filter-name>LoginCheckFilter</filter-name>  
-   <filter-class>com.france.filter.LoginCheckFilter</filter-class>  
-   <!-- url分隔符可以是 换行 空格 分号  逗号  白名单和黑名单都是可选-->  
-   <init-param>  
-       <param-name>blackListURL</param-name> <!-- 配置黑名单url 表示不走过滤器的url order：1 -->  
-       <param-value>  
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 登录判断过滤器 -->
+	<filter>
+		<filter-name>LoginCheckFilter</filter-name>
+		<filter-class>com.france.filter.LoginCheckFilter</filter-class>
+		<!-- url分隔符可以是 换行 空格 分号 逗号 白名单和黑名单都是可选 -->
+		<init-param>
+			<param-name>blackListURL</param-name> <!-- 配置黑名单url 表示不走过滤器的url order：1 -->
+			<param-value>  
             /index.html
             /login.html
             /login*
@@ -39,101 +54,87 @@
             /js/*
             /scripts/*
             /PIE-2.0beta1/*
-        </param-value>  
-    </init-param>  
-    <init-param>  
-        <param-name>whiteListURL</param-name> <!-- 配置白名单url 表示走过滤器的url order：2-->  
-        <param-value>  
-            /admin**;/apply**;/user*;
-            /list.jsp*;/step.jsp*;
-            /finished-view.html*;/listadmin.html*
-        </param-value>  
-    </init-param>  
- </filter>  
- <filter-mapping>  
-    <filter-name>LoginCheckFilter</filter-name>  
-    <url-pattern>/*</url-pattern>  
- </filter-mapping>  
- <!--权限过滤器  filter -->
-   <filter>  
-   <filter-name>RoleCheckFilter</filter-name>  
-   <filter-class>com.france.filter.RoleCheckFilter</filter-class>  
-   <!-- url分隔符可以是 换行 空格 分号  逗号  白名单和黑名单都是可选-->  
-   <init-param>  
-       <param-name>blackListURL</param-name> <!-- 配置黑名单url 表示不走过滤器的url order：1 -->  
-       <param-value>  
-        </param-value>  
-    </init-param>  
-    <init-param>  
-        <param-name>whiteListURL</param-name> <!-- 配置白名单url 表示走过滤器的url order：2-->  
-        <!-- 比如admin要login 和role 都过滤，后台逻辑就比较清楚 -->
-        <param-value>  
-            /admin/*;/listadmin.html*;
+            /plupload/**
+            /news-**
         </param-value>
-    </init-param>
- </filter>  
- <filter-mapping>  
-    <filter-name>RoleCheckFilter</filter-name>  
-    <url-pattern>/*</url-pattern>  
- </filter-mapping> 
- <!--日志过滤器  filter -->
-   <filter>  
-   <filter-name>LogFilter</filter-name>  
-   <filter-class>com.france.filter.LogFilter</filter-class>  
- </filter>  
- <filter-mapping>  
-    <filter-name>LogFilter</filter-name>  
-    <url-pattern>/*</url-pattern>  
- </filter-mapping>   
- <!-- filter -->  
-  <filter>
-    <filter-name>struts2</filter-name>
-    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-  </filter> 
-  <filter>
-    <filter-name>openSessionInViewFilter</filter-name>
-    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
-    <init-param>
-      <param-name>singleSession</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
-  <filter>
-    <filter-name>encodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-      <param-name>forceEncoding</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>struts2</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>openSessionInViewFilter</filter-name>
-    <url-pattern>*.do,*.action</url-pattern>
-  </filter-mapping>
-  <session-config>
-    <session-timeout>20</session-timeout>
-  </session-config>
+		</init-param>
+		<init-param>
+			<param-name>whiteListURL</param-name> <!-- 配置白名单url 表示走过滤器的url order：2 -->
+			<param-value>  
+            /admin/*;/apply**;/user*;/admin**
+            /listuser.jsp*;/step.jsp*;
+            /finished-view.html*;/listadmin.jsp*
+        </param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--权限过滤器 filter -->
+	<filter>
+		<filter-name>RoleCheckFilter</filter-name>
+		<filter-class>com.france.filter.RoleCheckFilter</filter-class>
+		<!-- url分隔符可以是 换行 空格 分号 逗号 白名单和黑名单都是可选 -->
+		<init-param>
+			<param-name>blackListURL</param-name> <!-- 配置黑名单url 表示不走过滤器的url order：1 -->
+			<param-value>  
+        </param-value>
+		</init-param>
+		<init-param>
+			<param-name>whiteListURL</param-name> <!-- 配置白名单url 表示走过滤器的url order：2 -->
+			<!-- 比如admin要login 和role 都过滤，后台逻辑就比较清楚 -->
+			<param-value>  
+            /admin/**;/listadmin.html*;/admin-*
+        </param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>RoleCheckFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--日志过滤器 filter -->
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>com.france.filter.LogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- filter -->
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
 
- 
- <!-- error code -->
-<error-page>
- 	<error-code>404</error-code>
-	<location>/error/404.jsp</location>
-</error-page>
-<error-page>
- 	<error-code>500</error-code>
-	<location>/error/500.jsp</location>
-</error-page>
+
+	<!-- error code -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
 </web-app>

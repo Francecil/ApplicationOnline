@@ -93,8 +93,9 @@ public abstract class BaseFilter implements Filter {
     private boolean isWhiteURL(String currentURL) {  
         for (String whiteURL : whiteListURLs) {  
             if (pathMatcher.match(whiteURL, currentURL)) {  
-            	 System.out.println("url filter : white url list matches : [{"+whiteURL+"}] match [{"+currentURL+"}] continue"); 
-                return true;  
+            	 System.out.println("白名单匹配进入具体的控制 url filter : white url list matches : [{"+whiteURL+"}] match [{"+currentURL+"}] continue"); 
+            	 
+            	 return true;  
             }  
         }  
         return false;  
@@ -103,7 +104,7 @@ public abstract class BaseFilter implements Filter {
     private boolean isBlackURL(String currentURL) {  
         for (String blackURL : blackListURLs) {  
             if (pathMatcher.match(blackURL, currentURL)) {  
-            	 System.out.println("url filter : black url list matches : [{"+blackURL+"}] match [{"+currentURL+"}] continue"); 
+            	 System.out.println("黑名单匹配成功，无需再次检查到下一个过滤器  url filter : black url list matches : [{"+blackURL+"}] match [{"+currentURL+"}] continue"); 
                 return true;  
             }  
 //            System.out.println("url filter : black url list not matches:"+blackURL);

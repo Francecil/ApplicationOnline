@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebRoot/test.html=UTF-8
 encoding//src/application.sql=UTF-8
 encoding//src/com/france/dao/BaseDAO.java=UTF-8
 encoding//src/com/france/dao/impl/BaseDAOImpl.java=GBK

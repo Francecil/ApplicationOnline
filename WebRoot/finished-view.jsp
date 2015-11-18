@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <!doctype html>
 <html lang="en">
@@ -13,10 +17,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
   <title>Document</title>
-  <link href="./css/application.css" media="all" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="./scripts/jquery-1.8.0.min.js"></script>
-  <script src="./js/move.js" type="text/javascript"></script>
-  <script src="./js/tab.js" type="text/javascript"></script>
+  <link href="<%=basePath%>css/application.css" media="all" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="<%=basePath%>scripts/jquery-1.8.0.min.js"></script>
+  <script src="<%=basePath%>js/move.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/tab.js" type="text/javascript"></script>
  </head>
 	<body>
 		<div class="header">

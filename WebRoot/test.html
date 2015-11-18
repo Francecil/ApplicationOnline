@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>selectList</title>
+<style type="text/css">
+    *{margin:0;padding:0;}
+    .selectList{width:200px;margin:50px auto;}
+</style>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/select_topic.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#btn").click(function(){
+        var one=$("#one").val();
+        var tow=$("#tow").val();
+        var three=$("#three").val();
+        alert(one+","+tow+","+three);
+        });
+    });
+    </script>
+</head>
+<body>
+<form action="">
+    <div class="selectList">
+        <select id="one" class="province">
+            <option>Please</option>
+        </select>
+        <select id ="tow" class="city">
+            <option>Please</option>
+        </select>
+        <select id="three" class="district">
+            <option>Please</option>
+        </select>
+    </div>
+    <input id="btn" type="button" value="submit" />
+    </form>
+</body>
+</html>

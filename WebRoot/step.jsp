@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <!doctype html>
 <html lang="en">
@@ -14,21 +18,21 @@
   <meta name="renderer" content="webkit">
   <title>Document</title>
 
-  <link href="./css/application.css" media="all" rel="stylesheet" type="text/css">
+  <link href="<%=basePath%>css/application.css" media="all" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
-  <script src="./js/move.js" type="text/javascript"></script>
-  <script src="./js/tab.js" type="text/javascript"></script>
-  <script src="./laydate/laydate.js" type="text/javascript"></script>
-  <script src="./js/jquery.leanModal.min.js" type="text/javascript"></script>
-  <script src="./js/step-save.js" type="text/javascript"></script>
-  <script src="./js/app_curd.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/move.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/tab.js" type="text/javascript"></script>
+  <script src="<%=basePath%>laydate/laydate.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/jquery.leanModal.min.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/step-save.js" type="text/javascript"></script>
+  <script src="<%=basePath%>js/app_curd.js" type="text/javascript"></script>
  </head>
 	<body>
 		<div class="header">
 			<h1>Online Application System</h1>
 			<div class="rightTop">
 			<div>welcome,<span id="user"><s:property value="#session.User.uname"/></span></div>
-			<div style="line-height:50px;"><a href="./userlist.action"><<-back</a></div>
+			<div style="line-height:50px;"><a href="<%=basePath%>userlist.action"><<-back</a></div>
 			</div>
 		</div>
 		<div class="content">

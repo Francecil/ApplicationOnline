@@ -1,0 +1,36 @@
+{
+    "children": [
+        {
+            "children": [],
+            "id": 2,
+            "level": 1,
+            "name": "lanmuA",
+            "parentLanmu": null
+        },
+        {
+            "children": [],
+            "id": 3,
+            "level": 1,
+            "name": "lanmuB",
+            "parentLanmu": null
+        },
+        {
+            "children": [
+                {
+                    "children": [],
+                    "id": 5,
+                    "level": 2,
+                    "name": "lanmuCA",
+                    "parentLanmu": null
+                }
+            ],
+            "id": 4,
+            "level": 1,
+            "name": "lanmuC",
+            "parentLanmu": null
+        }
+    ],
+    "id": 1,
+    "level": 0,
+    "name": "root"
+}

@@ -1,8 +1,66 @@
+-44未处于同一事务中，
+		newsService.saveArticle(acticle);
+		Lanmu lanmu=newsService.findAllChildrenLanmu(topic);
+		lanmu.getArticles().add(acticle);
+		得不到延迟加载的东西
+-43/admin** 不能匹配/admin/upload.jsp 需要/admin/*  或者/** 看PathTest
+-42 懒加载失效? 同41,
+<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern> 把原来的*。do *。action改为/* 
+	</filter-mapping>
+	之前那些懒加载的问题都可以用这个去解决掉
+-41 opensessoninview 解决在jsp中懒加载无效问题，配置问题
+今天在用Hibernate延迟加载时,显示到界面出现如下问题: 
+org.hibernate.LazyInitializationException: could not initialize proxy - the owning Session was closed 
+
+原因: 在界面加载数据时, session已经关闭,故报此错. 此前的对象只是代理对象(只有ID值) 
+
+故使用Spring 里的 OpenSessionInViewFilter 来解决此问题 
+
+在web.xml里配置
+Xml代码：
+<!--Hibernate Open Session in View Filter-->   
+< filter >   
+     < filter-name > hibernateFilter </ filter-name >   
+     < filter-class > org.springframework.orm.hibernate3.support.OpenSessionInViewFilter </ filter-class >   
+</ filter >   
+< filter-mapping >   
+     < filter-name > hibernateFilter </ filter-name >   
+     < url-pattern > /* </ url-pattern >   
+</ filter-mapping >   
+ 
+再测试, 问题依然存在,,, 纳闷....... 后来分析,再google... 终于发现问题出在Struts2上....
+现在的web.xml里,我是把OpenSessionInViewFilter的配置放在Struts2后面的.
+我更改下前后顺序 , 神奇的解决了:)   正确的配置顺序如下:
+ 
+Xml代码 ：
+<!--Hibernate Open Session in View Filter 注意要放在Struts2配置前面-->   
+< filter >   
+     < filter-name > hibernateFilter </ filter-name >   
+     < filter-class > org.springframework.orm.hibernate3.support.OpenSessionInViewFilter </ filter-class >   
+</ filter >   
+< filter-mapping >   
+     < filter-name > hibernateFilter </ filter-name >   
+     < url-pattern > /* </ url-pattern >   
+</ filter-mapping >   
+  
+< filter >      
+     < filter-name > Struts2 </ filter-name >      
+     < filter-class > org.apache.struts2.dispatcher.FilterDispatcher </ filter-class >      
+</ filter >      
+< filter-mapping >      
+     < filter-name > Struts2 </ filter-name >      
+     < url-pattern > /* </ url-pattern >      
+</ filter-mapping >    
+
+-40 单人myeclipse开发 在local的master branch右键项目 先commit 然后在push to upstream 如果针对的是文件(夹) 就没有push等功能
 -39
 注意配置lazy=true时 在jsp中通过对象再去拿list是会报session不存在的错误的
 org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.france.bean.StudyInfoApplication.details, could not initialize proxy - no Session
 要么在action中去取一遍 要不lazy=false;
 studyinfo中的配置把fetch = FetchType.Lazy 改为fetch = FetchType.EAGER (看业务逻辑 我这边是一般取studyinfo detail也要拿的 所以直接配置EAGER)
+另外参考-41
 @OneToMany( fetch = FetchType.EAGER, mappedBy = "studyinfoApplication")
 	public List<StudyDetail> getDetails() {
 		return details;
@@ -133,7 +191,7 @@ CascadeType是运行时才去判别的。
 		return user;
 	}    referencedColumnName="user_id" 加上这个的话，删除不了baseApplication 外键关联 要把user删除后才能删base 在1 to many的情况下 many端不要配置该参数
 
--28 @OneToOne(mappedBy = "baseApplication",fetch = FetchType.EAGER) mappedBy配置之后 就不会再出现那些 然后参照测试方法testBase 正确配置
+-28 @OneToOne(mappedBy = "baseApplication",fetch = FetchType.EAGER) mappedBy配置之后 就不会再显式出现字段 然后参照测试方法testBase 正确配置
 -27org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.france.bean.User.userRoles, could not initialize proxy - no Session
 
 -26 关于级联的建议:不要在hibernate中设置，CascadeType 而是在mysql客户端去设置cascade on delete等约束！！ hibernate有毒

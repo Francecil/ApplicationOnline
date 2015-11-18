@@ -89,6 +89,14 @@ public class UserServiceImplTest {
 		session.close();
 	}
 	@Test
+	public void testStringSub(){
+		String names[]="sample.pdf".split("\\.");
+        for(int i=0;i<names.length;i++){
+            ///storage/emulated/0/360Download/sample.pdf
+        System.out.println(names[i]);
+        }
+	}
+	@Test
 	public void testStudy(){
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();

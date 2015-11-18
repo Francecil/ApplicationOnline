@@ -2,12 +2,12 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
-	
+
 <struts>
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.serve.static.browserCache" value="false" />
-	
+
 	<package name="ApplicationOnline" namespace="" extends="struts-default">
 		<action name="register" method="register" class="loginAction">
 			<result name="register_success" type="redirect">
@@ -16,93 +16,122 @@
 		</action>
 		<action name="login" method="login" class="loginAction">
 			<result name="admin_success" type="redirectAction">
-				<param name="actionName">showlist</param> 
-    		</result>
-    		<result name="user_success" type="redirectAction">
-				<param name="actionName">userlist</param> 
-    		</result>
+				<param name="actionName">showlist</param>
+			</result>
+			<result name="user_success" type="redirectAction">
+				<param name="actionName">userlist</param>
+			</result>
 			<result name="fail" type="redirect">/login.html</result>
 		</action>
 		<action name="showlist" method="showlist" class="adminAction">
 			<result name="adminlist_success">/listadmin.jsp</result>
 		</action>
 		<action name="userlist" method="userlist" class="userAction">
-			<result name="user_list_success">/list.jsp</result>
+			<result name="user_list_success">/listuser.jsp</result>
 		</action>
 		<action name="edit" method="edit" class="applyAction">
 			<result name="tryedit_success">/step.jsp</result>
 		</action>
 		<action name="view" method="view" class="applyAction">
-			<result name="tryview_success" >/finished-view.jsp</result>
+			<result name="tryview_success">/finished-view.jsp</result>
 		</action>
 	</package>
 	<package name="apply" namespace="" extends="json-default">
 		<action name="studyUpdate" method="studyUpdate" class="applyAction">
-			<result name="studyUpdate_success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="studyUpdate_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
 		</action>
 		<action name="studyDelete" method="studyDelete" class="applyAction">
-			<result name="studyDelete_success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="studyDelete_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
 		</action>
 		<action name="study" method="study" class="applyAction">
-			<result name="study_success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="study_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
 		</action>
 		<action name="finish" method="finish" class="applyAction">
-			<result name="finish_success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="finish_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
 		</action>
 		<action name="save" method="save" class="applyAction">
-			<result name="save_success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="save_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
-			<result name="success" type="json" >
-   				<param name="root">
-   					dataMap
-   				</param>
-   				<!-- json 不产生null-->
-   				<param name="excludeNullProperties">
-   					true
-   				</param>
+			<result name="success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
 			</result>
 			<result name="error">
 				/error/500.jsp
 			</result>
+		</action>
+	</package>
+	<package name="news" extends="json-default">
+		<action name="news-*" method="{1}" class="newsAction">
+			<result name="showLanmu_success" type="json">
+				<param name="root">
+					rootLanmu
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+			<result name="updateArticlesByPage_success" type="json">
+				<param name="root">
+					articleList
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+			<result name="showArticleList_success">/list.jsp</result>
+			<result name="showArticleDetail_success">/detail.jsp</result>
+			<result name="showArticleDetail_nofind">/error/404.jsp</result>
+		</action>
+		<action name="admin-*" method="{1}" class="newsAction">
+			<param name="savePath">/resources/files</param>
+			<result name="success">/listadmin.jsp</result>
 		</action>
 	</package>
 </struts> 

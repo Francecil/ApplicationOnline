@@ -46,7 +46,7 @@ public class UserAction extends ActionSupport {
 		noSubmitList=new ArrayList<>();
 		submitList=userService.getMyApplicationListByIsSubmit(u.getUser_id(),1);
 		noSubmitList=userService.getMyApplicationListByIsSubmit(u.getUser_id(),0);
-		
+		System.out.println("try to list.jsp");
 		return "user_list_success";
 	}
 	public String apply(){

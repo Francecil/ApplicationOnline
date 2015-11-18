@@ -2,6 +2,7 @@ $(document).ready(function(){
   $(".save").click(function(){
 //	  alert("hello");
 	  var stepID=$(this).attr("id");
+	  //alert(stepID);
 	  var stepform="#"+stepID+"form";
 	  var params = $(stepform).serialize();
 //	  $("input[name='basic.step']").val(stepID[4]);
@@ -23,15 +24,29 @@ $(document).ready(function(){
 
 //				alert(JSON.stringify(data));
 				alert("保存成功");
+				
 				var aid =data.aid;
-//				alert(aid);
+				
 //				alert($("input[name='basic.haveApplied']").val());
 				if(aid!=null&&aid!=""){
 				$("input[name='basic.haveApplied']").val(aid);
 				$("input[name='study.haveApplied']").val(aid);
 				$("input[name='work.haveApplied']").val(aid);
 				$("input[name='individual.haveApplied']").val(aid);
-				}
+			   
+			    if(stepID == "step1"){
+					$("#aaaa").css("backgroundColor","rgb(193,210,240)");
+				    }
+			    if(stepID == "step2"){
+					$("#bbbb").css("backgroundColor","rgb(193,210,240)");
+				    }
+			    if(stepID == "step3"){
+					$("#cccc").css("backgroundColor","rgb(193,210,240)");
+				    }
+			    if(stepID == "step4"){
+					$("#dddd").css("backgroundColor","rgb(193,210,240)");
+				    }
+			    }
 				
 			},
 			error:function(data){

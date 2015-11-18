@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Admin list</title>
-  <link href="css/application.css" media="all" rel="stylesheet" type="text/css">
+  <link href="<%=basePath%>css/application.css" media="all" rel="stylesheet" type="text/css">
  </head>
 	<body>
 		<div class="header">
@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="rightTop">
 			<div>welcome,<span id="user"> <s:property value="#session.User.uname"/></span></div>
 			<div style="line-height:50px;"><a href="./"><<-back</a></div>
+			<div style="line-height:50px;"><a href="admin/upload.jsp">ArticleManage</a></div>
 			</div>
 		</div>
 		<div class="content">

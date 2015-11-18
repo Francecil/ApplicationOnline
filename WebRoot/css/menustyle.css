@@ -1,0 +1,21 @@
+*{margin:0px;padding:0px;font-size:12px;}
+body{background:#eaeaea;}
+#header{background:#f5f5f5;}
+#header .logo{padding-top:15px;}
+#header .logo img{height:65px;float:left;margin-right:30px;}
+#content{width:980px;margin:0 auto;min-height:500px;}
+#cont{width:100%;}
+#cont .pic1{background:url(../img/r-top2.jpg);width:960px;height:113px;padding:10px;margin-top:10px;}
+#cont .detail_cont h3{padding-top: 50px;font-size: 24px;color: #333333;text-align: center;}
+#cont .detail_cont h1 {height: 50px;border-bottom:dashed 1px #cccccc;  line-height: 50px;font-size: 12px;font-weight: normal;text-align: center;}
+#cont .detail_cont h1 span {padding-left: 20px;color: #2365a8;}
+#cont .detail_cont_display {padding-top: 20px;line-height: 22px;font-size:12px;color:#333;}
+#lf_cont{width:255px;float:left;margin-top:10px;}
+#lf_cont .menu{background:url(../img/bg3.gif) repeat-y top;width:100%;}
+#ri_cont{width:715px;float:right;margin-top:10px;}
+#ri_cont .pic1{background:url(../img/r-top.jpg);width:695px;height:113px;padding:10px;}
+#ri_cont .list ul{margin:0px 30px;}
+#ri_cont .list ul li{width:100%;line-height:20px;font-size:14px;color:#000;}
+#ri_cont .list ul li span{float:right;font-size:12px;}
+#ri_cont .list ul li a,#ri_cont .list ul li a:hover{color:#000;font-size:12px;}
+#footer{height:80px;background:#a40000;line-height:80px;font-size:12px;color:#585858;text-align:center;width:100%;width: 100%;}
