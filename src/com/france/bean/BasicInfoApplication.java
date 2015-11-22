@@ -25,7 +25,7 @@ public class BasicInfoApplication implements java.io.Serializable
 	private String applicationType;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "basicInfoID", unique = true, nullable = false)
+	@Column(name = "basicInfoID", unique = true, nullable = true)
 	public int getBasicInfoID() {
 		return basicInfoID;
 	}
@@ -56,7 +56,7 @@ public class BasicInfoApplication implements java.io.Serializable
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@OneToOne(cascade=CascadeType.MERGE)
+	@OneToOne
 	public BaseApplication getBaseApplication() {
 		return baseApplication;
 	}

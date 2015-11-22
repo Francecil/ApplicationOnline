@@ -14,11 +14,10 @@ import com.france.bean.StudyDetail;
 import com.france.bean.StudyInfoApplication;
 import com.france.bean.User;
 import com.france.bean.UserRole;
+import com.france.bean.WorkDetail;
 import com.france.bean.WorkInfoApplication;
 import com.france.dao.BaseDAO;
 import com.france.dao.UserDao;
-import com.france.dao.impl.BaseDAOImpl;
-import com.france.dao.impl.UserDaoImpl;
 import com.france.service.UserService;
 
 
@@ -42,6 +41,12 @@ public class UserServiceImpl implements UserService {
 	private BaseDAO<BaseApplication> baseApplicationDAO;
 	@Resource
 	private BaseDAO<StudyDetail> studyDetailDAO;
+	@Resource
+	private BaseDAO<WorkDetail> workDetailDAO;
+	@Resource
+	private BaseDAO<StudyInfoApplication> studyInfoDAO;
+	@Resource
+	private BaseDAO<WorkInfoApplication> workInfoDAO;
 	@Resource
 	private UserDao userDao;
 
@@ -89,7 +94,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int addApplication(BaseApplication base) {
 		// TODO Auto-generated method stub
-		baseApplicationDAO.save(base);
+		
 		
 		BasicInfoApplication basic=new BasicInfoApplication();
 		basic.setBaseApplication(base);
@@ -103,6 +108,7 @@ public class UserServiceImpl implements UserService {
 		studyDAO.save(study);
 		workDAO.save(work);
 		individualDAO.save(individual);
+		baseApplicationDAO.save(base);
 		return 0;
 	}
 
@@ -131,8 +137,8 @@ public class UserServiceImpl implements UserService {
 			return baseDAO.count(hql,new Object[]{aid})>0;
 		}
 		case 3:{
-			String hql="select * from WORKINFO where baseApplication_applyId = ? ";
-			return userDao.isChildApplicationFull(hql,aid);
+			String hql=" select count(*) from WorkInfoApplication w1,WorkDetail w2 where w2.workinfoApplication.workInfoID = w1.workInfoID and w1.baseApplication.applyId = ?";
+			return baseDAO.count(hql,new Object[]{aid})>0;
 		}
 		case 4:{
 			String hql="select * from INDIVIDUALRESUME where baseApplication_applyId = ?  ";
@@ -259,6 +265,58 @@ public class UserServiceImpl implements UserService {
 	public void updateStudyDetail(StudyDetail s) {
 		// TODO Auto-generated method stub
 		studyDetailDAO.update(s);
+	}
+
+	@Override
+	public void saveWorkDetail(WorkDetail workDetail) {
+		// TODO Auto-generated method stub
+		workDetailDAO.save(workDetail);
+	}
+
+	@Override
+	public WorkDetail getWorkDetailByWID(int wid) {
+		// TODO Auto-generated method stub
+		return workDetailDAO.get(WorkDetail.class, wid);
+	}
+
+	@Override
+	public void deleteWorkDetail(int wid) {
+		// TODO Auto-generated method stub
+		WorkDetail w=workDetailDAO.get(WorkDetail.class, wid);
+		workDetailDAO.delete(w);
+	}
+
+	@Override
+	public void updateworkDetail(WorkDetail w) {
+		// TODO Auto-generated method stub
+		workDetailDAO.update(w);
+	}
+
+	@Override
+	public void saveStudyInfo(StudyInfoApplication s) {
+		// TODO Auto-generated method stub
+		studyInfoDAO.save(s);
+	}
+
+	@Override
+	public void updateUserToAddApply(User user, BaseApplication baseTemp) {
+		// TODO Auto-generated method stub
+		baseTemp.setUser(user);
+		BasicInfoApplication basic=new BasicInfoApplication();
+		baseTemp.setBasicInfoApplication(basic);
+		basic.setBaseApplication(baseTemp);
+		StudyInfoApplication study=new StudyInfoApplication();
+		baseTemp.setStudyInfoApplication(study);
+		study.setBaseApplication(baseTemp);
+		WorkInfoApplication work=new WorkInfoApplication();
+		baseTemp.setWorkInfoApplication(work);
+		work.setBaseApplication(baseTemp);
+		IndividualResumeApplication ind=new IndividualResumeApplication();
+		baseTemp.setIndividualResumeApplication(ind);
+		ind.setBaseApplication(baseTemp);//不添加这句话的话不会insert
+//		user.getBaseApplications().add(baseTemp);//不去更新user 
+		baseApplicationDAO.save(baseTemp);//而是去保存apply
+		
 	}
 
 

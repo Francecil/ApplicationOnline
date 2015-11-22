@@ -20,6 +20,7 @@ import com.france.bean.IndividualResumeApplication;
 import com.france.bean.StudyDetail;
 import com.france.bean.StudyInfoApplication;
 import com.france.bean.User;
+import com.france.bean.WorkDetail;
 import com.france.bean.WorkInfoApplication;
 import com.france.dao.impl.UserDaoImpl;
 import com.france.dto.BasicForm;
@@ -59,7 +60,6 @@ public class ApplyAction extends ActionSupport {
 		String level=request.getParameter("level");
 		String aid=request.getParameter("aid");
 		System.out.println("startTime:"+startTime);
-		BaseApplication base = new BaseApplication();
 		int aidI=-1;
 		BaseApplication baseTemp=new BaseApplication();
 		dataMap=new HashMap<String,Object>();
@@ -67,19 +67,16 @@ public class ApplyAction extends ActionSupport {
 			System.out.println("未存在aid");
 			//不存在申请，创建
 			System.out.println("不存在申请，创建");
-			base.setUser(loginUser);
-			userService.addApplication(base);
-			aidI=base.getApplyId();
-			System.out.println("创建后aid:"+aidI);
 			
+			userService.updateUserToAddApply(loginUser,baseTemp);//一次service操作
+			aidI=baseTemp.getApplyId();
+			System.out.println("创建后aid:"+aidI);
 			dataMap.put("aid", aidI);
-			baseTemp=userService.getSingleApplicationByUID(-1, base.getApplyId());//重新获取
 		}
 		else{
 			aidI=Integer.valueOf(aid);
 			baseTemp=userService.getSingleApplicationByUID(-1, aidI);//重新获取
 		}
-		
 		//添加 更新数据
 		StudyInfoApplication studySave =baseTemp.getStudyInfoApplication();
 		StudyDetail detail=new StudyDetail();//先建一个detail
@@ -101,6 +98,50 @@ public class ApplyAction extends ActionSupport {
 		//ok
 		System.out.println("更新数据成功");
 		return "study_success";
+	}
+	public String work(){
+		HttpServletRequest request=ServletActionContext.getRequest();
+		HttpSession session=request.getSession();
+		User loginUser=(User) session.getAttribute(Config.SESSION_USER);
+		String startTime=request.getParameter("startTime");
+		String endTime=request.getParameter("endTime");
+		String company=request.getParameter("company");
+		String job=request.getParameter("job");
+		String aid=request.getParameter("aid");
+		System.out.println("startTime:"+startTime);
+		BaseApplication base = new BaseApplication();
+		int aidI=-1;
+		BaseApplication baseTemp=new BaseApplication();
+		dataMap=new HashMap<String,Object>();
+		if(aid==""||aid==null||!isNumeric(aid)){
+			System.out.println("未存在aid");
+			//不存在申请，创建
+			System.out.println("不存在申请，创建");
+			userService.updateUserToAddApply(loginUser,baseTemp);//一次service操作
+			aidI=baseTemp.getApplyId();
+			System.out.println("创建后aid:"+aidI);
+			dataMap.put("aid", aidI);
+		}
+		else{
+			aidI=Integer.valueOf(aid);
+			baseTemp=userService.getSingleApplicationByUID(-1, aidI);//重新获取
+		}
+		
+		//添加 更新数据
+		WorkInfoApplication workSave = baseTemp.getWorkInfoApplication();
+		WorkDetail detail = new WorkDetail();
+		detail.setEndTime(endTime);
+		detail.setStartTime(startTime);
+		detail.setCompany(company);
+		detail.setJob(job);
+		detail.setWorkinfoApplication(workSave);
+		userService.saveWorkDetail(detail);
+		int workdetailID=detail.getWdetailID();//hibernate的持久 能够得到该id?
+		System.out.println("workdetailID:"+workdetailID);
+		dataMap.put("workdetailID", workdetailID);
+		//ok
+		System.out.println("更新数据成功");
+		return "work_success";
 	}
 	public String studyUpdate(){
 		HttpServletRequest request=ServletActionContext.getRequest();
@@ -130,6 +171,35 @@ public class ApplyAction extends ActionSupport {
 		dataMap=new HashMap<String,Object>();
 		dataMap.put("status", "success");
 		return "studyDelete_success";
+	}
+	public String workUpdate(){
+		HttpServletRequest request=ServletActionContext.getRequest();
+	    HttpSession session=request.getSession();
+	    int wid =Integer.valueOf(request.getParameter("wid"));
+		String startTime=request.getParameter("startTime");
+		String endTime=request.getParameter("endTime");
+		String company=request.getParameter("company");
+		String job=request.getParameter("job");
+	    WorkDetail work=userService.getWorkDetailByWID(wid);
+	    work.setStartTime(startTime);
+	    work.setEndTime(endTime);
+	    work.setCompany(company);
+	    work.setJob(job);
+	    userService.updateworkDetail(work);
+	    dataMap=new HashMap<String,Object>();
+		dataMap.put("status", "success");
+	    return "workUpdate_success";
+	}
+	public String workDelete(){
+		HttpServletRequest request=ServletActionContext.getRequest();
+	    HttpSession session=request.getSession();
+		User loginUser=(User) session.getAttribute(Config.SESSION_USER);
+		int wid =Integer.valueOf(request.getParameter("wid"));
+		System.out.println("要删除的sid是"+wid);
+		userService.deleteWorkDetail(wid);
+		dataMap=new HashMap<String,Object>();
+		dataMap.put("status", "success");
+		return "workDelete_success";
 	}
 	public String view(){
 		HttpServletRequest request=ServletActionContext.getRequest();
@@ -218,29 +288,36 @@ public class ApplyAction extends ActionSupport {
 						switch(stepInt){
 						case 1:{BasicInfoApplication basicSave = app.getBasicInfoApplication();
 								BasicInfoApplication basicTemp= basic.getBasicInfoApplication();
-								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
-								basicTemp.setBaseApplication(basicSave.getBaseApplication());
+								//NonUniqueObjectException: 
+								// A different object with the same identifier value was already associated with the session 
+								//之前采取的是把数据库对象的id放给Temp 其实应该是把Temp数据换给数据库查询对象
+//								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
+//								basicTemp.setBaseApplication(basicSave.getBaseApplication());
+								basicSave.setAddress(basicTemp.getAddress());
+								basicSave.setApplicationType(basicTemp.getApplicationType());
+								basicSave.setName(basicTemp.getName());
+								basicSave.setSex(basicTemp.getSex());
+								basicSave.setEmail(basicTemp.getEmail());
+								userService.updateBasicApplication(basicSave);
 								basic=null;
-								userService.updateBasicApplication(basicTemp);
 								break;
 								}
 						case 2:{
 						study=null;
 						break;
 						}
-						case 3:{WorkInfoApplication workSave =app.getWorkInfoApplication();
-								WorkInfoApplication workTemp = work.getWorkInfoApplication();
+						case 3:{
 								work=null;
-								workTemp.setWorkInfoID(workSave.getWorkInfoID());
-								workTemp.setBaseApplication(workSave.getBaseApplication());
-								userService.updateWorkApplication(workTemp);
-								break;}
-						case 4:{IndividualResumeApplication indiSave =app.getIndividualResumeApplication();
+								break;
+								}
+						case 4:{
+							    IndividualResumeApplication indiSave =app.getIndividualResumeApplication();
 								IndividualResumeApplication indiTemp =individual.getIndividualResumeApplication();
-								indiTemp.setIndividualResumeID(indiSave.getIndividualResumeID());
-								indiTemp.setBaseApplication(indiSave.getBaseApplication());
+								indiSave.setIndividualResume(indiTemp.getIndividualResume());
+//								indiTemp.setIndividualResumeID(indiSave.getIndividualResumeID());
+//								indiTemp.setBaseApplication(indiSave.getBaseApplication());
+								userService.updateIndividualApplication(indiSave);
 								individual=null;
-								userService.updateIndividualApplication(indiTemp);
 								break;}
 						}
 						System.out.println("更新数据");
@@ -274,8 +351,9 @@ public class ApplyAction extends ActionSupport {
 				//不存在申请，创建
 				System.out.println("不存在申请，创建");
 				BaseApplication base=new BaseApplication();
-				base.setUser(loginUser);
-				userService.addApplication(base);
+				userService.updateUserToAddApply(loginUser,base);//一次service操作
+//				base.setUser(loginUser);
+//				userService.addApplication(base);
 				int aid=base.getApplyId();
 				System.out.println("创建后aid:"+aid);
 				dataMap=new HashMap<String,Object>();
@@ -285,33 +363,40 @@ public class ApplyAction extends ActionSupport {
 //					if(1<=newStep2&&newStep2<=4){
 						System.out.println("更新数据");
 //						userService.updateChildApplication(newStep2, newApplicationID, formData);
-						BaseApplication app=userService.getSingleApplicationByUID(loginUser.getUser_id(), aid);
+//						BaseApplication app=userService.getSingleApplicationByUID(loginUser.getUser_id(), aid);
 						switch(stepInt){
-						case 1:{BasicInfoApplication basicSave = app.getBasicInfoApplication();
+						case 1:{BasicInfoApplication basicSave = base.getBasicInfoApplication();
 								BasicInfoApplication basicTemp= basic.getBasicInfoApplication();
-								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
-								basicTemp.setBaseApplication(basicSave.getBaseApplication());
+								//NonUniqueObjectException: 
+								// A different object with the same identifier value was already associated with the session 
+								//之前采取的是把数据库对象的id放给Temp 其实应该是把Temp数据换给数据库查询对象
+//								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
+//								basicTemp.setBaseApplication(basicSave.getBaseApplication());
+								basicSave.setAddress(basicTemp.getAddress());
+								basicSave.setApplicationType(basicTemp.getApplicationType());
+								basicSave.setName(basicTemp.getName());
+								basicSave.setSex(basicTemp.getSex());
+								basicSave.setEmail(basicTemp.getEmail());
+								userService.updateBasicApplication(basicSave);
 								basic=null;
-								userService.updateBasicApplication(basicTemp);
 								break;
 								}
 						case 2:{
 						study=null;
 						break;
 						}
-						case 3:{WorkInfoApplication workSave =app.getWorkInfoApplication();
-								WorkInfoApplication workTemp = work.getWorkInfoApplication();
+						case 3:{
 								work=null;
-								workTemp.setWorkInfoID(workSave.getWorkInfoID());
-								workTemp.setBaseApplication(workSave.getBaseApplication());
-								userService.updateWorkApplication(workTemp);
-								break;}
-						case 4:{IndividualResumeApplication indiSave =app.getIndividualResumeApplication();
+								break;
+								}
+						case 4:{
+							    IndividualResumeApplication indiSave =base.getIndividualResumeApplication();
 								IndividualResumeApplication indiTemp =individual.getIndividualResumeApplication();
-								indiTemp.setIndividualResumeID(indiSave.getIndividualResumeID());
-								indiTemp.setBaseApplication(indiSave.getBaseApplication());
+								indiSave.setIndividualResume(indiTemp.getIndividualResume());
+//								indiTemp.setIndividualResumeID(indiSave.getIndividualResumeID());
+//								indiTemp.setBaseApplication(indiSave.getBaseApplication());
+								userService.updateIndividualApplication(indiSave);
 								individual=null;
-								userService.updateIndividualApplication(indiTemp);
 								break;}
 						}
 						return "save_success";

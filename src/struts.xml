@@ -70,6 +70,39 @@
 				</param>
 			</result>
 		</action>
+		<action name="workUpdate" method="workUpdate" class="applyAction">
+			<result name="workUpdate_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+		</action>
+		<action name="workDelete" method="workDelete" class="applyAction">
+			<result name="workDelete_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+		</action>
+		<action name="work" method="work" class="applyAction">
+			<result name="work_success" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+		</action>
 		<action name="finish" method="finish" class="applyAction">
 			<result name="finish_success" type="json">
 				<param name="root">

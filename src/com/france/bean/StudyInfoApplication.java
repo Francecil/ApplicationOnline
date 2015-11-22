@@ -30,7 +30,7 @@ public class StudyInfoApplication implements java.io.Serializable
 	private BaseApplication baseApplication;
 	private List<StudyDetail> details = new ArrayList<StudyDetail>(0);
 	@Id
-	@Column(name = "studyInfoID", unique = true, nullable = false)
+	@Column(name = "studyInfoID", unique = true, nullable = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getStudyInfoID() {
 		return studyInfoID;
@@ -39,14 +39,14 @@ public class StudyInfoApplication implements java.io.Serializable
 	public void setStudyInfoID(int studyInfoID) {
 		this.studyInfoID = studyInfoID;
 	}
-	@OneToOne(cascade=CascadeType.MERGE)
+	@OneToOne
 	public BaseApplication getBaseApplication() {
 		return baseApplication;
 	}
 	public void setBaseApplication(BaseApplication baseApplication) {
 		this.baseApplication = baseApplication;
 	}
-	@OneToMany( fetch = FetchType.EAGER, mappedBy = "studyinfoApplication")
+	@OneToMany( fetch = FetchType.LAZY, mappedBy = "studyinfoApplication")
 	public List<StudyDetail> getDetails() {
 		return details;
 	}

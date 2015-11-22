@@ -1,6 +1,7 @@
 package com.france.bean;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -45,6 +46,7 @@ public class BaseApplication implements java.io.Serializable
 
 	@Id
 	@GeneratedValue
+	@Column(name = "applyId", unique = true, nullable = true)
 	public int getApplyId() {
 		return applyId;
 	}
@@ -57,28 +59,28 @@ public class BaseApplication implements java.io.Serializable
 	public void setApplyTime(String applyTime) {
 		this.applyTime = applyTime;
 	}
-	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.MERGE,fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	public BasicInfoApplication getBasicInfoApplication() {
 		return basicInfoApplication;
 	}
 	public void setBasicInfoApplication(BasicInfoApplication basicInfoApplication) {
 		this.basicInfoApplication = basicInfoApplication;
 	}
-	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.MERGE,fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	public StudyInfoApplication getStudyInfoApplication() {
 		return studyInfoApplication;
 	}
 	public void setStudyInfoApplication(StudyInfoApplication studyInfoApplication) {
 		this.studyInfoApplication = studyInfoApplication;
 	}
-	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.MERGE,fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	public WorkInfoApplication getWorkInfoApplication() {
 		return workInfoApplication;
 	}
 	public void setWorkInfoApplication(WorkInfoApplication workInfoApplication) {
 		this.workInfoApplication = workInfoApplication;
 	}
-	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.MERGE,fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "baseApplication",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	public IndividualResumeApplication getIndividualResumeApplication() {
 		return individualResumeApplication;
 	}

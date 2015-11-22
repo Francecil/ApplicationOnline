@@ -10,6 +10,7 @@ import com.france.bean.StudyDetail;
 import com.france.bean.StudyInfoApplication;
 import com.france.bean.User;
 import com.france.bean.UserRole;
+import com.france.bean.WorkDetail;
 import com.france.bean.WorkInfoApplication;
 
 
@@ -36,17 +37,22 @@ public interface UserService {
 	public void saveUser(User user);
 	
 	public void updateUser(User user);
-	
+	public void updateUserToAddApply(User user,BaseApplication apply);
 	public User findUserById(int id);
 	
 	public void deleteUser(User user);
 	
 	public void saveStudyDetail(StudyDetail studyDetail);
+	public void saveWorkDetail(WorkDetail workDetail);
 	public void deleteStudyDetail(int sid);
+	public void deleteWorkDetail(int wid);
 	public StudyDetail getStudyDetailBySID(int sid);
+	public WorkDetail getWorkDetailByWID(int wid);
 	public void updateStudyDetail(StudyDetail s);
+	public void updateworkDetail(WorkDetail w);
 	public List<User> findAllList();
 	public void deleteUser(String email);
 	public void saveRole(Role r);
 	public void saveUserRole(UserRole ur);
+	public void saveStudyInfo(StudyInfoApplication s);
 }

@@ -34,7 +34,7 @@ public class IndividualResumeApplication implements java.io.Serializable
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "individualResumeID", unique = true, nullable = false)
+	@Column(name = "individualResumeID", unique = true, nullable = true)
 	public int getIndividualResumeID() {
 		return individualResumeID;
 	}

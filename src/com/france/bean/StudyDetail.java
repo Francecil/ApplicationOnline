@@ -55,7 +55,7 @@ public class StudyDetail implements java.io.Serializable
 	public void setLevel(String level) {
 		this.level = level;
 	}
-	@ManyToOne(optional = false) //left join true 为inner join()
+	@ManyToOne(optional = false,cascade = CascadeType.PERSIST) //left join true 为inner join()
 	@JoinColumn(name="pksinfoID")
 	public StudyInfoApplication getStudyinfoApplication() {
 		return studyinfoApplication;

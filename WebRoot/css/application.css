@@ -181,6 +181,10 @@ ul, li {
 	width:80%;
 	margin:30px auto;
 }
+.formcontent_work{
+	width:80%;
+	margin:30px auto;
+}
 /*form-items*/
 .form-item{
 	width:100%;
@@ -209,7 +213,7 @@ ul, li {
 	color:#fff;
 	text-align:center;
 }
-.education-title{
+.education-title,.workinfo-title{
 	background:#3a77d2;
 	font-size:12px;
 }
@@ -227,6 +231,12 @@ ul, li {
 }
 .Education-level{
 	width:20%;
+}
+.WorkInfo-company{
+	width:34%;
+}
+.WorkInfo-job{
+	width:25%;
 }
 .Operation{
 	width:10%;
@@ -260,6 +270,34 @@ ul, li {
 	behavior: url(PIE-2.0beta1/PIE.htc);
 		position:relative;
 		z-index:10;
+}
+/*work-form-items*/
+.form-item_work{
+	width:100%;
+	display:block;
+	height:50px;
+	margin-bottom:20px;
+	position:relative;
+}
+.workinfo_work{
+	clear:both;
+}
+.ed_item_work{
+	border-right:1px solid #ccc;
+}
+.workinfo li{
+	line-height:40px;
+	height:40px;
+	border-top:1px solid #ccc;
+}
+.workinfo li div{
+	float:left;
+	text-align:center;
+} 
+.workinfo-title div{
+	float:left;
+	color:#fff;
+	text-align:center;
 }
 /* webkit 浏览器*/
 .form-item ::-webkit-input-placeholder { color:#ccc; }
@@ -354,6 +392,58 @@ ul, li {
 	color:#ccc;
 }
 #lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background:#000;
+    display: none;
+}
+/*work_lean_overlay*/
+.leanmodal_work{
+	background:#fff;
+	border-top:4px solid #3190eb;
+	line-height:40px;
+}
+.lean_header_work{
+	padding:0px 30px;
+	height:40px;
+	background:#eff2f6;
+}
+.lean_form_work{
+	padding:30px 0px;
+}
+.lean_form_work li {
+	height:50px;
+	display:block;
+	padding:0px 30px;
+}
+.lean_form_work li span{
+	text-align:right;
+	float:left;
+	width:200px;
+	line-height:42px;
+}
+.lean_content_work .btn{
+	float:right;
+}
+.lean_work{
+	float:right;
+	margin:10px;
+	width:300px;	
+	height:22px; line-height:22px; padding-right:20px; border:1px solid #C6C6C6; background-repeat:no-repeat; background-position:right center;  background-color:#fff; outline:0;
+
+}
+.modal_close_work{
+	float:right;
+	cursor:pointer;
+}
+.modal_close_work:hover{
+	color:#ccc;
+}
+#lean_overlay_work {
     position: fixed;
     z-index:100;
     top: 0px;

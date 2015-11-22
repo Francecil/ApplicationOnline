@@ -1,17 +1,20 @@
 package com.france.dto;
 
-import com.france.bean.WorkInfoApplication;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.france.bean.WorkDetail;
 
 public class WorkForm {
-	private WorkInfoApplication workInfoApplication;
+	private List<WorkDetail> lists = new ArrayList<>(0);
 	private String haveApplied;
 	private String step;
 
-	public WorkInfoApplication getWorkInfoApplication() {
-		return workInfoApplication;
+	public List<WorkDetail> getLists() {
+		return lists;
 	}
-	public void setWorkInfoApplication(WorkInfoApplication workInfoApplication) {
-		this.workInfoApplication = workInfoApplication;
+	public void setLists(List<WorkDetail> lists) {
+		this.lists = lists;
 	}
 	public String getHaveApplied() {
 		return haveApplied;

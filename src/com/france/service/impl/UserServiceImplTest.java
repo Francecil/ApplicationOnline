@@ -13,11 +13,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.france.bean.BaseApplication;
+import com.france.bean.BasicInfoApplication;
+import com.france.bean.IndividualResumeApplication;
 import com.france.bean.Role;
 import com.france.bean.StudyDetail;
 import com.france.bean.StudyInfoApplication;
 import com.france.bean.User;
 import com.france.bean.UserRole;
+import com.france.bean.WorkInfoApplication;
 import com.france.service.UserService;
 import com.france.util.ConvertUtil;
 
@@ -151,6 +154,31 @@ public class UserServiceImplTest {
 //		BaseApplication b=(BaseApplication) session.get(BaseApplication.class, 3);
 		System.out.println("hehe");
 		System.out.println(application.getStudyInfoApplication().getStudyInfoID());//无法获取?数据没有刷新
+		tx.commit();
+		session.close();
+	}
+	@Test
+	public void saveUserAndBase(){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		User user=(User)session.get(User.class, 1);
+		BaseApplication base=new BaseApplication();
+		base.setUser(user);//选哟都添加添加该句话！http://jinnianshilongnian.iteye.com/blog/1522591
+		BasicInfoApplication basic=new BasicInfoApplication();
+		base.setBasicInfoApplication(basic);
+		basic.setBaseApplication(base);
+		StudyInfoApplication study=new StudyInfoApplication();
+		base.setStudyInfoApplication(study);
+		study.setBaseApplication(base);
+		WorkInfoApplication work=new WorkInfoApplication();
+		base.setWorkInfoApplication(work);
+		work.setBaseApplication(base);
+		IndividualResumeApplication ind=new IndividualResumeApplication();
+		base.setIndividualResumeApplication(ind);
+		ind.setBaseApplication(base);//不添加这句话的话不会insert
+		user.getBaseApplications().add(base);
+		session.update(user);
+		System.out.println("baseID:"+base.getApplyId());
 		tx.commit();
 		session.close();
 	}
