@@ -103,9 +103,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h1>STEP3</h1>
 					</span>
 					<form>
-						<div class="formcontent">
-							<div class="form-item textarea">
-								<span>Career situation:</span><textarea rows="6" cols="60" ><s:property value="baseApplication.workInfoApplication.workInfo"/></textarea>
+						<div class="formcontent" style="width:90%;">
+							<div class="">
+								<div class="education-title" style="clear:both;height:40px;line-height:40px;margin-top:30px;">
+										<div class="Admission-date" style="border-right:1px solid #fff;">Admission date</div>
+										<div class="End-academic" style="border-right:1px solid #fff;">Company</div>
+										<div class="Graduation-school ed_item" style="border-right:1px solid #fff;">The graduation school</div>
+										<div class="Education-level " >Job</div>
+								</div>
+								<div class="table">
+									<ul class="education" id="education" style="font-size:12px;">
+									<s:iterator value="baseApplication.workInfoApplication.details" var="wdetail">
+										<li>
+											<div class="Admission-date ed_item"><s:property value="#wdetail.startTime"/></div>
+											<div class="End-academic  ed_item"><s:property value="#wdetail.endTime"/></div>
+											<div class="Graduation-school ed_item"><s:property value="#wdetail.company"/></div>
+											<div class="Education-level  "><s:property value="#wdetail.job"/></div>
+										</li>
+									</s:iterator>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</form>

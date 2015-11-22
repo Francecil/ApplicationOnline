@@ -177,8 +177,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<li id="sd<s:property value="#wdetail.wdetailID"/>">
 											<div class="Admission-date ed_item_work"><s:property value="#wdetail.startTime"/></div>
 											<div class="End-academic  ed_item_work"><s:property value="#wdetail.endTime"/></div>
-											<div class="WorkInfo-company ed_item_work"><s:property value="#wdetail.school"/></div>
-											<div class="WorkInfo-job ed_item_work"><s:property value="#wdetail.level"/></div>
+											<div class="WorkInfo-company ed_item_work"><s:property value="#wdetail.company"/></div>
+											<div class="WorkInfo-job ed_item_work"><s:property value="#wdetail.job"/></div>
 											<div class="Operation">
 												<a class='edit_2_work operation'   rel='leanModal_work' href='#edit_work'>edit</a>
 												<a class='delete_2_work operation'>delete</a>
@@ -210,13 +210,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span>Self-introduction:</span><textarea id="individual.individualResumeApplication.individualResume" name="individual.individualResumeApplication.individualResume" rows="6" cols="60" ><s:property value="baseApplication.individualResumeApplication.individualResume"/></textarea>
 							</div>
 						</div>
-						<input name="individual.step" type="hidden" value="4"/>
-						<input name="individual.haveApplied" type="hidden" value="<s:property value="baseApplication.applyId"/>"/>
 						<div class="formbutton">
 							<input type="button" class="btn back" value="back" onclick="move('select', {top:200});tab3(this)"/>
 							<input id="finish" type="button" class="btn" value="finish"/>
 							<input id="step4" type="button" class="btn save" value="save" />
 						</div>
+						<input name="individual.step" type="hidden" value="4"/>
+						<input name="individual.haveApplied" type="hidden" value="<s:property value="baseApplication.applyId"/>"/>
 					</form>
 				</div>
 			</div>

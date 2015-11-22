@@ -314,6 +314,7 @@ public class ApplyAction extends ActionSupport {
 							    IndividualResumeApplication indiSave =app.getIndividualResumeApplication();
 								IndividualResumeApplication indiTemp =individual.getIndividualResumeApplication();
 								indiSave.setIndividualResume(indiTemp.getIndividualResume());
+								System.out.println("indiTemp.getIndividualResume():"+indiTemp.getIndividualResume());
 //								indiTemp.setIndividualResumeID(indiSave.getIndividualResumeID());
 //								indiTemp.setBaseApplication(indiSave.getBaseApplication());
 								userService.updateIndividualApplication(indiSave);

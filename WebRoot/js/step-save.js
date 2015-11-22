@@ -55,7 +55,6 @@ $(document).ready(function(){
 		});
 	});
   $("#finish").click(function(){
-	  var params = $('#step4form').serialize();
 //	  alert("finish");
 	  var aid=$("input[name='basic.haveApplied']").val();
 	  if(aid==null||aid==""||aid.length==0){
@@ -66,7 +65,6 @@ $(document).ready(function(){
 			type: "post",
 			url: 'finish.action?aid='+aid,
 			async: true,
-			data: params,
 			success: function(data) {
 				var status = data.status;
 				if(status=="success"){
