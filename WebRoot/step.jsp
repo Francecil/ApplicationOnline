@@ -17,9 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
   <title>Document</title>
-
   <link href="<%=basePath%>css/application.css" media="all" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.min.js"></script>
   <script src="<%=basePath%>js/move.js" type="text/javascript"></script>
   <script src="<%=basePath%>js/tab.js" type="text/javascript"></script>
   <script src="<%=basePath%>laydate/laydate.js" type="text/javascript"></script>
@@ -51,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="title">
 						<h1>STEP1</h1>
 					</span>
-					<form id="step1form">
+					<form id="step1form" enctype="multipart/form-data">
 						<div class="formcontent">
 							<div class="form-item">
 								<span>USERNAME:</span><input class="forminput" name="basic.basicInfoApplication.name" type="text" value="<s:property value="baseApplication.basicInfoApplication.name"/>" />
@@ -76,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span>EMAIL:</span><input class="forminput" value="<s:property value="baseApplication.basicInfoApplication.email"/>" name="basic.basicInfoApplication.email" type="text" />
 							</div>
 							<div class="form-item">
-							<span>TYPE:</span>
+							<span>APPLICATION TYPE:</span>
 							<s:set name="atype" value="baseApplication.basicInfoApplication.applicationType"></s:set>
 							<select  name="basic.basicInfoApplication.applicationType" class="forminput" style="height:30px;width:322px;">
 								<!-- ing  selected = "selected" -->
@@ -100,6 +99,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="form-item textarea">
 								<span>ADDRESS:</span><textarea  name="basic.basicInfoApplication.address" rows="6" cols="60" ><s:property value="baseApplication.basicInfoApplication.address"/></textarea>
 							</div>
+						</div>
+						<div id="file">
+							<div id="btn_position">
+								<input type='button' class='btn btn1' value='browse...' />
+							</div>
+							<input type='text' name='textfield' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield' class='txt' />
+							<input type="file" name="upload" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value ;preview(this)" />
 						</div>
 						<input name="basic.haveApplied" type="hidden" value="<s:property value="baseApplication.applyId"/>"/>
 						<input name="basic.step" type="hidden" value="1"/>

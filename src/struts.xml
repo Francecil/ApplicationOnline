@@ -7,7 +7,34 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.serve.static.browserCache" value="false" />
-
+	<constant name="struts.multipart.maxSize" value="55000000" /><!-- 
+		可上传50M的文件 -->
+	<package name="fileUpload" namespace="/" extends="struts-default">
+		<action name="upload" class="strutsFileUpload">
+			<result name="input" type="redirect">/admin/ChangePhoto.jsp</result>
+			<result name="adminSuccess" type="redirect">/admin/index2.jsp</result>
+			<result name="userSuccess" type="redirect">/admin/index.jsp</result>
+			<interceptor-ref name="defaultStack">
+				<!-- 配置允许上传的文件类型，多个用","分隔 -->
+				<param name="fileUpload.allowedTypes">
+					png,gif,jpeg,doc,xls,rar,zip,txt
+				</param>
+				<!-- 配置允许上传的文件大小，单位字节 10485760=10M -->
+				<param name="fileUpload.maximumSize">10485760</param>
+			</interceptor-ref>
+		</action>
+		<action name="download" class="download">
+			<result name="success" type="stream">
+				<!-- 动态文件下载的，事先并不知道未来的文件类型，那么我们可以把它的值设置成为：application/octet-stream;charset=ISO8859-1 
+					，注意一定要加入charset，否则某些时候会导致下载的文件出错； -->
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<param name="inputName">downloadFile</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+				<!-- 此处文件的大小一定要和后台绑定 -->
+				<param name="bufferSize">${flen}</param>
+			</result>
+		</action>
+	</package>
 	<package name="ApplicationOnline" namespace="" extends="struts-default">
 		<action name="register" method="register" class="loginAction">
 			<result name="register_success" type="redirect">

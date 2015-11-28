@@ -16,7 +16,7 @@ $(document).ready(function(){
 //	  return;
 		$.ajax({
 			type: "post",
-			url: 'save.action',
+			url: 'save.action?step='+stepID[4],
 			async: true,
 			data: params,
 			success: function(data) {

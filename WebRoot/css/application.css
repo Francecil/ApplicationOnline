@@ -443,6 +443,67 @@ ul, li {
 .modal_close_work:hover{
 	color:#ccc;
 }
+#file{
+	color:#6c6c6c;
+	width:650px;
+	height:50px;
+	background:#f0f6ed;
+	box-shadow:0 0 4px 2px rgba(153, 153, 153, 0.75);
+	box-shadow:0 2px 4px 0 rgba(153, 153, 153, 0.75);
+	margin:0 auto;
+	border-top:1px solid #ccc;
+	padding-top:15px;
+}
+#file span{
+	margin:10px;
+	margin-left:20px;
+	float:left;
+}
+#file input{ 
+	vertical-align:middle;
+	height:40px;
+	width:100px;
+	margin:0; 
+	padding:0;
+	margin:auto;
+	display:block;
+	border:1px solid #cdcdcd;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	outline:none;
+	float:left;
+}
+#file .txt{
+	width:250px;
+	padding-left:10px;
+	padding-right:10px;
+	float:right;
+	margin-right:50px;
+}
+#btn_position{
+	height:40px;
+	width:300px;
+	float:left;
+}
+#file .btn{
+	background-color:#FFF;
+}
+#file .btn1,#file .btn2{
+	float:right;
+	cursor:pointer;
+	margin-left:30px;
+}
+#file .file{
+	position:relative;
+	top:-40px;
+	left:200px;
+	height:40px; 
+	filter:alpha(opacity:0);
+	opacity: 0;
+	width:100px ;
+	cursor:pointer;
+}
 #lean_overlay_work {
     position: fixed;
     z-index:100;

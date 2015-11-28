@@ -43,10 +43,10 @@ public class ApplyAction extends ActionSupport {
 	@Resource
 	private UserService userService;
 //	private BasicInfoApplication basic;
-	private BasicForm basic;
-	private StudyForm study;
-	private WorkForm work;
-	private IndividualForm individual;
+	private BasicForm basic=null;
+	private StudyForm study=null;
+	private WorkForm work=null;
+	private IndividualForm individual=null;
 //	private int applicationID;
 	private Map<String,Object> dataMap;
 	private BaseApplication baseApplication;
@@ -262,7 +262,9 @@ public class ApplyAction extends ActionSupport {
 		 
 		 String haveApplied="";
 //		String[] formData=request.getParameterValues("formvalue");
-		int stepInt=getReturnChildApplication();
+//		int stepInt=getReturnChildApplication();
+		int stepInt=Integer.valueOf(request.getParameter("step"));
+		System.out.println("step..."+stepInt);
 		if(stepInt<1||stepInt>4){
 			System.out.println("未上传任何数据，非ajax表单提交");
 			return "error";
