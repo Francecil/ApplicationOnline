@@ -79,7 +79,7 @@ public class Lanmu implements java.io.Serializable {
 		this.level = level;
 	}
 	@OneToMany(targetEntity=Lanmu.class, mappedBy="parentLanmu", cascade=CascadeType.ALL, fetch = FetchType.EAGER)  
-    @OrderBy("name")
+//    @OrderBy("name")
 	public Set<Lanmu> getChildren() {
 		return children;
 	}

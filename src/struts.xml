@@ -9,16 +9,29 @@
 	<constant name="struts.serve.static.browserCache" value="false" />
 	<constant name="struts.multipart.maxSize" value="55000000" /><!-- 
 		可上传50M的文件 -->
-	<package name="fileUpload" namespace="/" extends="struts-default">
-		<action name="upload" class="strutsFileUpload">
-			<result name="input" type="redirect">/admin/ChangePhoto.jsp</result>
-			<result name="adminSuccess" type="redirect">/admin/index2.jsp</result>
-			<result name="userSuccess" type="redirect">/admin/index.jsp</result>
-			<interceptor-ref name="defaultStack">
-				<!-- 配置允许上传的文件类型，多个用","分隔 -->
-				<param name="fileUpload.allowedTypes">
-					png,gif,jpeg,doc,xls,rar,zip,txt
+	<package name="fileManage" namespace="/" extends="json-default">
+		<action name="fileAction-*" method="{1}" class="fileAction">
+			<result name="input" >/admin/ChangePhoto.jsp</result>
+			<result name="uploadSuccess" type="json">
+				<param name="root">
+					dataMap
 				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+			<result name="uploadError" >/index.jsp</result>
+			<interceptor-ref name="defaultStack">
+				<!-- 配置允许上传的文件拓展名，多个用","分隔 -->
+				<param name="fileUpload.allowedExtensions"> 
+					docx,doc,rar,zip,txt,pdf
+				</param>
+				<!-- 配置允许上传的文件类型，多个用","分隔 较麻烦 --> 
+   				<!-- <param name="fileUpload.allowedTypes"> 
+       				image/png,image/gif,image/jpeg  
+    			</param> 
+    			 -->
 				<!-- 配置允许上传的文件大小，单位字节 10485760=10M -->
 				<param name="fileUpload.maximumSize">10485760</param>
 			</interceptor-ref>

@@ -179,18 +179,17 @@ ul, li {
 }
 .formcontent{
 	width:80%;
-	margin:30px auto;
+	margin:20px auto 0px;
 }
 .formcontent_work{
 	width:80%;
-	margin:30px auto;
+	margin:20px auto 0px;
 }
 /*form-items*/
 .form-item{
 	width:100%;
 	display:block;
 	height:50px;
-	margin-bottom:20px;
 	position:relative;
 }
 .education{
@@ -255,7 +254,7 @@ ul, li {
 	width:100%;
 	display:block;
 	height:150px;
-	margin-bottom:20px;
+	
 	position:relative;
 }
 .textarea textarea{
@@ -332,7 +331,7 @@ ul, li {
 .form-item span{
 	float:left;
 	text-align:right;
-	width:15%;
+	width:20%;
 	line-height:32px;
 }
 .form-item .forminput:focus{
@@ -348,6 +347,7 @@ ul, li {
 .formbutton{
 	height:80px;
 	margin-left:30%;
+	margin-top:10px;
 }
 /*lean_overlay*/
 .leanmodal{
@@ -443,23 +443,22 @@ ul, li {
 .modal_close_work:hover{
 	color:#ccc;
 }
-#file{
+.file-item{
 	color:#6c6c6c;
-	width:650px;
-	height:50px;
+	height:40px;
 	background:#f0f6ed;
-	box-shadow:0 0 4px 2px rgba(153, 153, 153, 0.75);
 	box-shadow:0 2px 4px 0 rgba(153, 153, 153, 0.75);
-	margin:0 auto;
 	border-top:1px solid #ccc;
-	padding-top:15px;
+	padding:15px 18px;
+	position:relative;
+	
 }
-#file span{
+.file-item span{
 	margin:10px;
 	margin-left:20px;
 	float:left;
 }
-#file input{ 
+.file-item input{ 
 	vertical-align:middle;
 	height:40px;
 	width:100px;
@@ -473,34 +472,32 @@ ul, li {
 	-moz-border-radius:5px;
 	outline:none;
 	float:left;
+	
+	
 }
-#file .txt{
-	width:250px;
+.file-item .txt{
+	width:70%;
 	padding-left:10px;
 	padding-right:10px;
-	float:right;
-	margin-right:50px;
-}
-#btn_position{
-	height:40px;
-	width:300px;
 	float:left;
 }
-#file .btn{
+.btn_position{
+	height:40px;
+	float:right;
+}
+.file-item .btn{
 	background-color:#FFF;
 }
-#file .btn1,#file .btn2{
+.file-item .btn1,.file-item .btn2{
 	float:right;
 	cursor:pointer;
-	margin-left:30px;
 }
-#file .file{
-	position:relative;
-	top:-40px;
-	left:200px;
+.file-item .file{
+	position:absolute;
+	right:18px;
 	height:40px; 
 	filter:alpha(opacity:0);
-	opacity: 0;
+	opacity:0;
 	width:100px ;
 	cursor:pointer;
 }

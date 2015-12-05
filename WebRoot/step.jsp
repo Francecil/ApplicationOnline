@@ -23,11 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script src="<%=basePath%>js/tab.js" type="text/javascript"></script>
   <script src="<%=basePath%>laydate/laydate.js" type="text/javascript"></script>
   <script src="<%=basePath%>js/jquery.leanModal.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="<%=basePath%>js/ajaxfileUpload.js" ></script>
   <script src="<%=basePath%>js/step-save.js" type="text/javascript"></script>
   <script src="<%=basePath%>js/app_study_curd.js" type="text/javascript"></script>
   <script src="<%=basePath%>js/app_work_curd.js" type="text/javascript"></script>
  </head>
 	<body>
+	
 		<div class="header">
 			<h1>Online Application System</h1>
 			<div class="rightTop">
@@ -99,13 +101,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="form-item textarea">
 								<span>ADDRESS:</span><textarea  name="basic.basicInfoApplication.address" rows="6" cols="60" ><s:property value="baseApplication.basicInfoApplication.address"/></textarea>
 							</div>
-						</div>
-						<div id="file">
-							<div id="btn_position">
-								<input type='button' class='btn btn1' value='browse...' />
+							<div class="form-item" style="height:70px;">
+								<span style="width: 20%;height: 1px;float: left;"></span>
+								<div id="file" class="file-item" style="width:55%;float:left;margin-left:10px">
+									<div id="btn_position" class="btn_position">
+										<input type='button' class='btn btn1' value='browse...' />
+									</div>
+									<input type='text' name='textfield' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield' class='txt' />
+									<input type="file" name="uploads1" class="file" id="s1f1" size="28" onchange="document.getElementById('textfield').value=this.value ;" />
+								</div>
 							</div>
-							<input type='text' name='textfield' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield' class='txt' />
-							<input type="file" name="upload" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value ;preview(this)" />
+							<br/>
+							<div class="form-item" style="height:70px;">
+								<span style="width: 20%;height: 1px;float: left;"></span>
+								<div id="file" class="file-item" style="width:55%;float:left;margin-left:10px">
+									<div id="btn_position" class="btn_position">
+										<input type='button' class='btn btn1' value='browse...' />
+									</div>
+									<input type='text' name='textfield2' placeholder="<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield2' class='txt' />
+									<input type="file" name="uploads1" class="file" id="s1f2" size="28" onchange="document.getElementById('textfield2').value=this.value ;" />
+								</div>
+							</div>
 						</div>
 						<input name="basic.haveApplied" type="hidden" value="<s:property value="baseApplication.applyId"/>"/>
 						<input name="basic.step" type="hidden" value="1"/>
@@ -215,7 +231,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="form-item textarea">
 								<span>Self-introduction:</span><textarea id="individual.individualResumeApplication.individualResume" name="individual.individualResumeApplication.individualResume" rows="6" cols="60" ><s:property value="baseApplication.individualResumeApplication.individualResume"/></textarea>
 							</div>
+							<div class="form-item" style="height:70px;">
+								<span style="width: 20%;height: 1px;float: left;"></span>
+								<div id="file" class="file-item" style="width:55%;float:left;margin-left:10px">
+									<div id="btn_position" class="btn_position">
+										<input type='button' class='btn btn1' value='browse...' />
+									</div>
+									<input type='text' name='textfield_1' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield_1' class='txt' />
+									<input type="file" name="uploads4" class="file" id="s4f1" size="28" onchange="document.getElementById('textfield_1').value=this.value ;" />
+								</div>
+							</div>
+							<br/>
+							<div class="form-item" style="height:70px;">
+								<span style="width: 20%;height: 1px;float: left;"></span>
+								<div id="file" class="file-item" style="width:55%;float:left;margin-left:10px">
+									<div id="btn_position" class="btn_position">
+										<input type='button' class='btn btn1' value='browse...' />
+									</div>
+									<input type='text' name='textfield_2' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield_2' class='txt' />
+									<input type="file" name="uploads4" class="file" id="s4f2" size="28" onchange="document.getElementById('textfield_2').value=this.value ;" />
+								</div>
+							</div>
+							<br/>
+							<div class="form-item" style="height:70px;">
+								<span style="width: 20%;height: 1px;float: left;"></span>
+								<div id="file" class="file-item" style="width:55%;float:left;margin-left:10px">
+									<div id="btn_position" class="btn_position">
+										<input type='button' class='btn btn1' value='browse...' />
+									</div>
+									<input type='text' name='textfield_3' placeholder="fileOne,<20M,support:doc,xls,rar,zip。" disabled="disabled" id='textfield_3' class='txt' />
+									<input type="file" name="uploads4" class="file" id="s4f3" size="28" onchange="document.getElementById('textfield_3').value=this.value ;" />
+								</div>
+							</div>
 						</div>
+						
 						<div class="formbutton">
 							<input type="button" class="btn back" value="back" onclick="move('select', {top:200});tab3(this)"/>
 							<input id="finish" type="button" class="btn" value="finish"/>
@@ -360,6 +409,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			elem: '#edit_edoa_work',//目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
 			event: 'focus' //响应事件。如果没有传入event，则按照默认的click
 		});
+	</script>
+	<script type="text/javascript">
+		$("#leftcontent").height($("#rightcontent").css("height"));
 	</script>
  </body>
 </html>

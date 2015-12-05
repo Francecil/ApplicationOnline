@@ -23,31 +23,33 @@ $(document).ready(function(){
 //				alert(data);
 
 //				alert(JSON.stringify(data));
-				alert("保存成功");
+				
 				
 				var aid =data.aid;
-				
-//				alert($("input[name='basic.haveApplied']").val());
 				if(aid!=null&&aid!=""){
 				$("input[name='basic.haveApplied']").val(aid);
 				$("input[name='study.haveApplied']").val(aid);
 				$("input[name='work.haveApplied']").val(aid);
 				$("input[name='individual.haveApplied']").val(aid);
-			   
-			    if(stepID == "step1"){
+			    }
+				if(stepID == "step1"){
+					var files = ['s1f1','s1f2'];
+					ajaxFileUpload(files,"s1",$("input[name='basic.haveApplied']").val());
 					$("#aaaa").css("backgroundColor","rgb(193,210,240)");
 				    }
-			    if(stepID == "step2"){
+				else if(stepID == "step2"){
 					$("#bbbb").css("backgroundColor","rgb(193,210,240)");
 				    }
-			    if(stepID == "step3"){
+				else if(stepID == "step3"){
 					$("#cccc").css("backgroundColor","rgb(193,210,240)");
 				    }
-			    if(stepID == "step4"){
+				else if(stepID == "step4"){
+					var files = ['s4f1','s4f2','s4f3'];
+					alert(files);
+					ajaxFileUpload(files,"s4",$("input[name='basic.haveApplied']").val());
 					$("#dddd").css("backgroundColor","rgb(193,210,240)");
 				    }
-			    }
-				
+				alert("保存成功");
 			},
 			error:function(data){
 				alert("保存失败");
@@ -81,4 +83,21 @@ $(document).ready(function(){
 			}
 		});
 	});
+  function ajaxFileUpload(filelist,type,aid) {
+      var elementIds=type; //flag为id、name属性名
+      $.ajaxFileUpload({
+          url: 'fileAction-upload.action?type='+type+'&aid='+aid, 
+          type: 'post',
+          secureuri: false, //一般设置为false
+          fileElementId: filelist, // 上传文件的id、name属性名
+          dataType: 'json', //返回值类型，一般设置为json、application/json
+          elementIds: elementIds, //传递参数到服务器
+          success: function(data, status){
+          },
+          error: function(data, status, e){ 
+              alert(e);
+          }
+      });
+      //return false;
+  }
 });
