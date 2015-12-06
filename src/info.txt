@@ -1,3 +1,8 @@
+-46解决冲突
+右键 compare with work区 右上角合并
+-45
+servlet 和 struts 同时存在时，
+新定义filter
 -44未处于同一事务中，
 		newsService.saveArticle(acticle);
 		Lanmu lanmu=newsService.findAllChildrenLanmu(topic);

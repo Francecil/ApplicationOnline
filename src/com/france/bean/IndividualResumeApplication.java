@@ -21,6 +21,9 @@ public class IndividualResumeApplication implements java.io.Serializable
 	private static final long serialVersionUID = 5386032297690523306L;
 	private int individualResumeID;
 	private String individualResume;
+	private String fileStudyPlan;
+	private String fileScholarshipApplication;
+	private String fileChineseGovementApplication;
 	private BaseApplication baseApplication;
 	public boolean checkForAllNotNull(){
 		if(individualResume!=null)return true;
@@ -48,4 +51,24 @@ public class IndividualResumeApplication implements java.io.Serializable
 	public void setBaseApplication(BaseApplication baseApplication) {
 		this.baseApplication = baseApplication;
 	}
+	public String getFileStudyPlan() {
+		return fileStudyPlan;
+	}
+	public void setFileStudyPlan(String fileStudyPlan) {
+		this.fileStudyPlan = fileStudyPlan;
+	}
+	public String getFileScholarshipApplication() {
+		return fileScholarshipApplication;
+	}
+	public void setFileScholarshipApplication(String fileScholarshipApplication) {
+		this.fileScholarshipApplication = fileScholarshipApplication;
+	}
+	public String getFileChineseGovementApplication() {
+		return fileChineseGovementApplication;
+	}
+	public void setFileChineseGovementApplication(
+			String fileChineseGovementApplication) {
+		this.fileChineseGovementApplication = fileChineseGovementApplication;
+	}
+	
 }

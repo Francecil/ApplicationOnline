@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form id="step1form" enctype="multipart/form-data">
 						<div class="formcontent">
 							<div class="form-item">
-								<span>USERNAME:</span><input class="forminput" name="basic.basicInfoApplication.name" type="text" value="<s:property value="baseApplication.basicInfoApplication.name"/>" />
+								<span>NAME:</span><input class="forminput" name="basic.basicInfoApplication.name" type="text" value="<s:property value="baseApplication.basicInfoApplication.name"/>" />
 							</div>
 							<div class="form-item">
 								<span>SEX:</span>
@@ -77,12 +77,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span>EMAIL:</span><input class="forminput" value="<s:property value="baseApplication.basicInfoApplication.email"/>" name="basic.basicInfoApplication.email" type="text" />
 							</div>
 							<div class="form-item">
-							<span>APPLICATION TYPE:</span>
+							<span>Scholarship Applied:</span>
 							<s:set name="atype" value="baseApplication.basicInfoApplication.applicationType"></s:set>
 							<select  name="basic.basicInfoApplication.applicationType" class="forminput" style="height:30px;width:322px;">
 								<!-- ing  selected = "selected" -->
 								<s:if test='#atype=="TYPE2"'>
-								<option value="TYPE1">TYPE1</option>
+								<option value="TYPE1">FULL Scholarship</option>
 								<option value="TYPE2" selected = "selected">TYPE2</option>
 								<option value="TYPE3">TYPE3</option>
 								</s:if >

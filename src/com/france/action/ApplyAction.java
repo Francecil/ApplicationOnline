@@ -207,7 +207,7 @@ public class ApplyAction extends ActionSupport {
 		User loginUser=(User) session.getAttribute(Config.SESSION_USER);
 		int aid =Integer.valueOf(request.getParameter("aid"));
 		baseApplication=userService.getSingleApplicationByUID(loginUser.getUser_id(), aid);
-		System.out.println("view address"+baseApplication.getBasicInfoApplication().getAddress());
+//		System.out.println("view address"+baseApplication.getBasicInfoApplication().getAddress());
 		System.out.println("view address"+baseApplication.getBasicInfoApplication().getName());
 		return "tryview_success";
 	}
@@ -295,7 +295,7 @@ public class ApplyAction extends ActionSupport {
 								//之前采取的是把数据库对象的id放给Temp 其实应该是把Temp数据换给数据库查询对象
 //								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
 //								basicTemp.setBaseApplication(basicSave.getBaseApplication());
-								basicSave.setAddress(basicTemp.getAddress());
+//								basicSave.setAddress(basicTemp.getAddress());
 								basicSave.setApplicationType(basicTemp.getApplicationType());
 								basicSave.setName(basicTemp.getName());
 								basicSave.setSex(basicTemp.getSex());
@@ -375,7 +375,7 @@ public class ApplyAction extends ActionSupport {
 								//之前采取的是把数据库对象的id放给Temp 其实应该是把Temp数据换给数据库查询对象
 //								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
 //								basicTemp.setBaseApplication(basicSave.getBaseApplication());
-								basicSave.setAddress(basicTemp.getAddress());
+//								basicSave.setAddress(basicTemp.getAddress());
 								basicSave.setApplicationType(basicTemp.getApplicationType());
 								basicSave.setName(basicTemp.getName());
 								basicSave.setSex(basicTemp.getSex());
