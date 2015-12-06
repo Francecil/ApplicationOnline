@@ -24,6 +24,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script type="text/javascript" src="<%=basePath%>ckeditor/adapters/jquery.js"></script>
  <script type="text/javascript" src="<%=basePath%>ckfinder/ckfinder.js"></script>
        
+<<<<<<< HEAD
+=======
+<script type="text/javascript">
+// Convert divs to queue widgets when the DOM is ready
+	$(function() {
+		$("#uploader").pluploadQueue({
+			// General settings
+			//strid:$('input[name=mstrid]').val(),
+			runtimes : 'gears,flash,silverlight,browserplus,html5,html4',
+			url : 'admin-upload.action',
+			max_file_size : '10mb',
+			unique_names : true,
+			chunk_size: '2mb',
+			// Specify what files to browse for
+			filters : [
+{title : "Image files", extensions : "jpg,gif,png"}
+			],
+	
+			// Flash settings	
+			flash_swf_url : '<%=basePath%>plupload/js/plupload.flash.swf',
+			// Silverlight settings
+			silverlight_xap_url : '<%=basePath%>plupload/js/plupload.silverlight.xap'
+		});
+	});
+
+			function test() {
+				//JavaScript判空，如果确定
+				var editor_data = CKEDITOR.instances.content.getData();
+				if(editor_data==null||editor_data==""){
+					alert("数据为空不能提交");
+				}else{
+					if(confirm(editor_data)){
+					document.myform.submit();
+					}
+				}		
+			}
+		
+	
+</script>
+>>>>>>> branch 'master' of ssh://git@github.com/Francecil/ApplicationOnline.git
 
 </head>
 
@@ -41,7 +81,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span>Article title:</span><input id="title" name="title" />
 				</div>
 				<div class="form-item textarea">
+<<<<<<< HEAD
 			
+=======
+			<form action="doTest.jsp" name="myform" method="post">
+		      <ckfinder:setupCKEditor editor="content" basePath="ckfinder/" />   
+		      <ckeditor:editor basePath="ckeditor/"    
+		            editor="content" value="CKEditor Test......(此处的内容会在编辑器中显示)--by jCuckoo " />   
+		      <input type="button" onclick="test()" value="提交数据"/>
+	       </form>
+>>>>>>> branch 'master' of ssh://git@github.com/Francecil/ApplicationOnline.git
 				</div>
 		<div class="selectList">
 		Select Topic

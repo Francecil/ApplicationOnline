@@ -107,4 +107,15 @@ public class NewsServiceImpl implements NewsService{
 		// TODO Auto-generated method stub
 		return articleDAO.get(Article.class, id);
 	}
+
+	@Override
+	public List<Article> getAllChildLanmuArticleInIndex(Lanmu parentLanmu,
+			Integer pageCount) {
+		leafArtilces=new ArrayList<Integer>();
+		dfs2getLeafchildren(parentLanmu);
+		String in_sql=listToSQLString(leafArtilces);
+		String hql="select new Article(a.id,a.title,a.publishTime) from Article as a where a.topicID in "+in_sql+"  order by a.publishTime desc";
+//		articleDAO.find(hql, new Object[]{}, pageNum, Config.PAGE_SIZE);//按分页加载
+		return articleDAO.find(hql, new Object[]{}, 1, pageCount);
+	}
 }

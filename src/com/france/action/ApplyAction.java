@@ -217,7 +217,6 @@ public class ApplyAction extends ActionSupport {
 		User loginUser=(User) session.getAttribute(Config.SESSION_USER);
 		int aid =Integer.valueOf(request.getParameter("aid"));
 		baseApplication=userService.getSingleApplicationByUID(loginUser.getUser_id(), aid);
-		
 		return "tryedit_success";
 	}
 	public String finish(){
@@ -288,7 +287,8 @@ public class ApplyAction extends ActionSupport {
 //								userService.updateChildApplication(newStep, applicationID, formData);
 						BaseApplication app=userService.getSingleApplicationByUID(-1, aid);
 						switch(stepInt){
-						case 1:{BasicInfoApplication basicSave = app.getBasicInfoApplication();
+						case 1:{
+								BasicInfoApplication basicSave = app.getBasicInfoApplication();
 								BasicInfoApplication basicTemp= basic.getBasicInfoApplication();
 								//NonUniqueObjectException: 
 								// A different object with the same identifier value was already associated with the session 
@@ -296,10 +296,36 @@ public class ApplyAction extends ActionSupport {
 //								basicTemp.setBasicInfoID(basicSave.getBasicInfoID());
 //								basicTemp.setBaseApplication(basicSave.getBaseApplication());
 //								basicSave.setAddress(basicTemp.getAddress());
-								basicSave.setApplicationType(basicTemp.getApplicationType());
-								basicSave.setName(basicTemp.getName());
-								basicSave.setSex(basicTemp.getSex());
+								if("FULL Scholarship".equals(basicTemp.getApplicationType())){
+									basicSave.setApplicationType(basicTemp.getApplicationType());
+								}else{
+									basicSave.setApplicationType(basic.getApplicationType());
+								}
+								basicSave.setBirthDay(basicTemp.getBirthDay());
+								basicSave.setBirthPlace(basicTemp.getBirthPlace());
 								basicSave.setEmail(basicTemp.getEmail());
+								basicSave.setLanguageChineseLevel(basicTemp.getLanguageChineseLevel());
+								basicSave.setLanguageChineseShow(basicTemp.getLanguageChineseShow());
+								basicSave.setLanguageEnglishIsTaught(basicTemp.getLanguageEnglishIsTaught());
+								basicSave.setLanguageEnglishLevel(basicTemp.getLanguageEnglishLevel());
+								basicSave.setLanguageOther(basicTemp.getLanguageOther());
+								basicSave.setMailingAddress(basicTemp.getMailingAddress());
+								basicSave.setMaritalStatus(basicTemp.getMaritalStatus());
+								basicSave.setName(basicTemp.getName());
+								basicSave.setNationality(basicTemp.getNationality());
+								basicSave.setOccupation(basicTemp.getOccupation());
+								basicSave.setPassportNo(basicTemp.getPassportNo());
+								basicSave.setPermanentAddress(basicTemp.getPermanentAddress());
+								basicSave.setReligion(basicTemp.getReligion());
+								basicSave.setSex(basicTemp.getSex());
+								basicSave.setStudyDurationFrom(basicTemp.getStudyDurationFrom());
+								basicSave.setStudyDurationTo(basicTemp.getStudyDurationTo());
+								basicSave.setStudyPreferenceInstitutionsOne(basicTemp.getStudyPreferenceInstitutionsOne());
+								basicSave.setStudyPreferenceInstitutionsTwo(basicTemp.getStudyPreferenceInstitutionsTwo());
+								basicSave.setStudyPreferenceInstitutionsThree(basicTemp.getStudyPreferenceInstitutionsThree());
+								basicSave.setStudyProposedType(basicTemp.getStudyProposedType());
+								basicSave.setStudySubjectField(basicTemp.getStudySubjectField());
+								basicSave.setTel(basicTemp.getTel());
 								userService.updateBasicApplication(basicSave);
 								basic=null;
 								break;

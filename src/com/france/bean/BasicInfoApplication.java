@@ -25,21 +25,19 @@ public class BasicInfoApplication implements java.io.Serializable
 	private String languageChineseLevel;
 	private String languageChineseShow;
 	private String languageEnglishLevel;
-	private String languageEndlishIsTaught;
+	private String languageEnglishIsTaught;
 	private String languageOther;
 	private String studyProposedType;
 	private String studySubjectField;
 	private String studyPreferenceInstitutionsOne;
-	private String studyPreferenceInstitutionsTow;
+	private String studyPreferenceInstitutionsTwo;
 	private String studyPreferenceInstitutionsThree;
 	private String studyDurationFrom;
 	private String studyDurationTo;
-	private String nationnality;//国籍
+	private String nationality;//国籍
 	private String birthPlace;//出生地
 	private String birthDay;//生日
 	private String maritalStatus;//婚姻状况
-	private String healthStatus;//健康状况
-	private String healthReport;//体检号
 	private String passportNo;//护照号码
 	private String religion;//宗教信仰
 	private String tel;//电话
@@ -118,11 +116,12 @@ public class BasicInfoApplication implements java.io.Serializable
 	public void setLanguageEnglishLevel(String languageEnglishLevel) {
 		this.languageEnglishLevel = languageEnglishLevel;
 	}
-	public String getLanguageEndlishIsTaught() {
-		return languageEndlishIsTaught;
+	
+	public String getLanguageEnglishIsTaught() {
+		return languageEnglishIsTaught;
 	}
-	public void setLanguageEndlishIsTaught(String languageEndlishIsTaught) {
-		this.languageEndlishIsTaught = languageEndlishIsTaught;
+	public void setLanguageEnglishIsTaught(String languageEnglishIsTaught) {
+		this.languageEnglishIsTaught = languageEnglishIsTaught;
 	}
 	public String getLanguageOther() {
 		return languageOther;
@@ -149,12 +148,13 @@ public class BasicInfoApplication implements java.io.Serializable
 			String studyPreferenceInstitutionsOne) {
 		this.studyPreferenceInstitutionsOne = studyPreferenceInstitutionsOne;
 	}
-	public String getStudyPreferenceInstitutionsTow() {
-		return studyPreferenceInstitutionsTow;
+	
+	public String getStudyPreferenceInstitutionsTwo() {
+		return studyPreferenceInstitutionsTwo;
 	}
-	public void setStudyPreferenceInstitutionsTow(
-			String studyPreferenceInstitutionsTow) {
-		this.studyPreferenceInstitutionsTow = studyPreferenceInstitutionsTow;
+	public void setStudyPreferenceInstitutionsTwo(
+			String studyPreferenceInstitutionsTwo) {
+		this.studyPreferenceInstitutionsTwo = studyPreferenceInstitutionsTwo;
 	}
 	public String getStudyPreferenceInstitutionsThree() {
 		return studyPreferenceInstitutionsThree;
@@ -175,11 +175,12 @@ public class BasicInfoApplication implements java.io.Serializable
 	public void setStudyDurationTo(String studyDurationTo) {
 		this.studyDurationTo = studyDurationTo;
 	}
-	public String getNationnality() {
-		return nationnality;
+	
+	public String getNationality() {
+		return nationality;
 	}
-	public void setNationnality(String nationnality) {
-		this.nationnality = nationnality;
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 	public String getBirthPlace() {
 		return birthPlace;
@@ -198,18 +199,6 @@ public class BasicInfoApplication implements java.io.Serializable
 	}
 	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
-	}
-	public String getHealthStatus() {
-		return healthStatus;
-	}
-	public void setHealthStatus(String healthStatus) {
-		this.healthStatus = healthStatus;
-	}
-	public String getHealthReport() {
-		return healthReport;
-	}
-	public void setHealthReport(String healthReport) {
-		this.healthReport = healthReport;
 	}
 	public String getPassportNo() {
 		return passportNo;
@@ -247,5 +236,73 @@ public class BasicInfoApplication implements java.io.Serializable
 	public void setFilePersonalPhoto(String filePersonalPhoto) {
 		this.filePersonalPhoto = filePersonalPhoto;
 	}
-	
+	public boolean JudgeFormFull(){
+		if("".equals(applicationType)||applicationType==null){
+			return false;
+		}
+		if("".equals(name)||name==null){
+			return false;
+		}
+		if("".equals(sex)||sex==null){
+			return false;
+		}
+		if("".equals(email)||email==null){
+			return false;
+		}
+		if("".equals(permanentAddress)||permanentAddress==null){
+			return false;
+		}
+		if("".equals(mailingAddress)||mailingAddress==null){
+			return false;
+		}
+		if("".equals(languageChineseLevel)||languageChineseLevel==null){
+			return false;
+		}
+		if("".equals(languageEnglishLevel)||languageEnglishLevel==null){
+			return false;
+		}
+		if("".equals(languageEnglishIsTaught)||languageEnglishIsTaught==null){
+			return false;
+		}
+		if("".equals(studyProposedType)||studyProposedType==null){
+			return false;
+		}
+		if("".equals(studyDurationFrom)||studyDurationFrom==null){
+			return false;
+		}
+		if("".equals(studyDurationTo)||studyDurationTo==null){
+			return false;
+		}
+		if("".equals(nationality)||nationality==null){
+			return false;
+		}
+		if("".equals(birthPlace)||birthPlace==null){
+			return false;
+		}
+		if("".equals(birthDay)||birthDay==null){
+			return false;
+		}
+		if("".equals(maritalStatus)||maritalStatus==null){
+			return false;
+		}
+		if("".equals(passportNo)||passportNo==null){
+			return false;
+		}
+		if("".equals(religion)||religion==null){
+			return false;
+		}
+		if("".equals(tel)||tel==null){
+			return false;
+		}
+		if("".equals(occupation)||occupation==null){
+			return false;
+		}
+		if("".equals(filePersonalPhoto)||filePersonalPhoto==null){
+			return false;
+		}
+		if("".equals(applicationType)||applicationType==null){
+			return false;
+		}
+		return true;
+	}
 }

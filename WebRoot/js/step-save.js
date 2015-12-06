@@ -20,12 +20,14 @@ $(document).ready(function(){
 			async: true,
 			data: params,
 			success: function(data) {
-//				alert(data);
-
-//				alert(JSON.stringify(data));
+				var aid;
+				if(data==null||data.aid==null){
+					aid=$("input[name='basic.haveApplied']").val();
+				}
+				else{
+					aid=data.aid;
+				}
 				
-				
-				var aid =data.aid;
 				if(aid!=null&&aid!=""){
 				$("input[name='basic.haveApplied']").val(aid);
 				$("input[name='study.haveApplied']").val(aid);
@@ -33,8 +35,21 @@ $(document).ready(function(){
 				$("input[name='individual.haveApplied']").val(aid);
 			    }
 				if(stepID == "step1"){
+					var status = "";
+					if($("#s1f1").val()==""){
+						status+="0";
+					}
+					else{
+						status+="1";
+					}
+					if($("#s1f2").val()==""){
+						status+="0";
+					}
+					else{
+						status+="1";
+					}
 					var files = ['s1f1','s1f2'];
-					ajaxFileUpload(files,"s1",$("input[name='basic.haveApplied']").val());
+					ajaxFileUpload(files,"s1",aid,status);
 					$("#aaaa").css("backgroundColor","rgb(193,210,240)");
 				    }
 				else if(stepID == "step2"){
@@ -44,9 +59,27 @@ $(document).ready(function(){
 					$("#cccc").css("backgroundColor","rgb(193,210,240)");
 				    }
 				else if(stepID == "step4"){
+					var status = "";
+					if($("#s4f1").val()==""){
+						status+="0";
+					}
+					else{
+						status+="1";
+					}
+					if($("#s4f2").val()==""){
+						status+="0";
+					}
+					else{
+						status+="1";
+					}
+					if($("#s4f3").val()==""){
+						status+="0";
+					}
+					else{
+						status+="1";
+					}
 					var files = ['s4f1','s4f2','s4f3'];
-					alert(files);
-					ajaxFileUpload(files,"s4",$("input[name='basic.haveApplied']").val());
+					ajaxFileUpload(files,"s4",aid,status);
 					$("#dddd").css("backgroundColor","rgb(193,210,240)");
 				    }
 				alert("保存成功");
@@ -83,10 +116,10 @@ $(document).ready(function(){
 			}
 		});
 	});
-  function ajaxFileUpload(filelist,type,aid) {
+  function ajaxFileUpload(filelist,type,aid,status) {
       var elementIds=type; //flag为id、name属性名
       $.ajaxFileUpload({
-          url: 'fileAction-upload.action?type='+type+'&aid='+aid, 
+          url: 'fileAction-upload.action?type='+type+'&aid='+aid+'&status='+status, 
           type: 'post',
           secureuri: false, //一般设置为false
           fileElementId: filelist, // 上传文件的id、name属性名

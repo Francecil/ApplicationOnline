@@ -129,8 +129,9 @@ public class UserServiceImpl implements UserService {
 //		BaseApplication baseApplication=baseApplicationDAO.get(BaseApplication.class, aid);
 		switch(childType){
 		case 1: {
-			String hql="select * from BASICINFO where baseApplication_applyId = ? ";
-			return userDao.isChildApplicationFull(hql,aid);
+			String hql="from BasicInfoApplication basic where basic.baseApplication.applyId = ? ";
+			BasicInfoApplication basic=basicDAO.find(hql, new Object[]{aid}).get(0);
+			return basic.JudgeFormFull();
 		}
 		case 2:{
 			String hql=" select count(*) from StudyInfoApplication s1,StudyDetail s2 where s2.studyinfoApplication.studyInfoID = s1.studyInfoID and s1.baseApplication.applyId = ?";

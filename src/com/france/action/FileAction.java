@@ -10,11 +10,17 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
 
+import com.france.bean.BaseApplication;
+import com.france.bean.BasicInfoApplication;
+import com.france.bean.IndividualResumeApplication;
+import com.france.service.UserService;
+import com.france.util.ConvertUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Controller("fileAction")
@@ -61,6 +67,8 @@ public String path;
  * 
  * @return
  */
+@Resource
+private UserService userService;
 private Map<String,Object> dataMap;
 public String upload() {
     try {
@@ -69,18 +77,55 @@ public String upload() {
     	        File.separator + "WEB-INF" + File.separator + "file");
     	HttpServletRequest request = ServletActionContext.getRequest();
     	String type=request.getParameter("type");
-    	System.out.println("flag:"+type);
+    	String aid=request.getParameter("aid");
+    	String status=request.getParameter("status");
+    	System.out.println("type:"+type+"  aid:"+aid);
+    	BaseApplication app=userService.getSingleApplicationByUID(-1, Integer.valueOf(aid));
+    	BasicInfoApplication basic=app.getBasicInfoApplication();
+    	IndividualResumeApplication individual=app.getIndividualResumeApplication();
         // 将Struts2自动封装的文件名赋给要写入的文件 这个可以得到具体文件名
     	if("s1".equals(type)){
-    		for(int i=0;i<uploads1.size();i++){
-        		File storageFile = new File(path + "//" + uploads1FileName.get(i));
-                copy(uploads1.get(i), storageFile);//绑定的upload 上传时是先把文件放在tomcat的缓冲区
+    		if(uploads1==null||uploads1.size()==0)return "uploadSuccess";
+    		int fileIndex=0;
+    		for(int i=0;i<status.length();i++){
+    			if(status.charAt(i)=='0'){
+    				System.out.println("第"+(i+1)+"个没有上传文件");
+    				continue;
+    			}
+    			String saveName=ConvertUtil.getUUID()+uploads1FileName.get(fileIndex);
+    			if(i==0){
+                    basic.setFileHealthReport(saveName);
+    			}else{
+    				basic.setFilePersonalPhoto(saveName);
+    			}
+    			
+    			File storageFile = new File(path + "//" + saveName);
+                copy(uploads1.get(fileIndex), storageFile);//绑定的upload 上传时是先把文件放在tomcat的缓冲区
+                userService.updateBasicApplication(basic);
+                fileIndex++;
         	}
     	}
     	else if("s4".equals(type)){
-    		for(int i=0;i<uploads4.size();i++){
-        		File storageFile = new File(path + "//" + uploads4FileName.get(i));
-                copy(uploads4.get(i), storageFile);//绑定的upload 上传时是先把文件放在tomcat的缓冲区
+    		if(uploads4==null||uploads4.size()==0)return "uploadSuccess";
+    		int fileIndex=0;
+    		for(int i=0;i<status.length();i++){
+    			if(status.charAt(i)=='0'){
+    				System.out.println("第"+(i+1)+"个没有上传文件");
+    				continue;
+    			}
+    			String saveName=ConvertUtil.getUUID()+uploads4FileName.get(fileIndex);
+    			if(i==0){
+    				individual.setFileStudyPlan(saveName);
+    			}else if(i==1){
+    				individual.setFileScholarshipApplication(saveName);
+    			}
+    			else {
+    				individual.setFileChineseGovementApplication(saveName);
+    			}
+        		File storageFile = new File(path + "//" + saveName);
+                copy(uploads4.get(fileIndex), storageFile);//绑定的upload 上传时是先把文件放在tomcat的缓冲区
+                userService.updateIndividualApplication(individual);
+                fileIndex++;
         	}
     	}
         return "uploadSuccess";

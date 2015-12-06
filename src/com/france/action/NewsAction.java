@@ -47,6 +47,7 @@ public class NewsAction extends ActionSupport {
 	private File upload;
 	private String name;
 	private List<String> names;
+	private List<Article> articles;
 	private String uploadFileName;
 	private String uploadContentType;
 	private String savePath;
@@ -62,6 +63,17 @@ public class NewsAction extends ActionSupport {
 //		rootLanmu.setChildren(rootLanmu.getChildren());
 //		System.out.println("获取完毕");
 		return "showLanmu_success";
+	}
+	public String showDetailListByLanmuID(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int lanmuID=Integer.valueOf(request.getParameter("lmid"));
+		articleList=new ArrayList<>();
+		Lanmu lanmu=newsService.findAllChildrenLanmu(lanmuID);
+		articleList=newsService.getAllChildLanmuArticleInIndex(lanmu, 8);
+//		System.out.println("由于是延迟加载/json输出的话 用sessionInView 也不行，故要去取一遍");
+//		rootLanmu.setChildren(rootLanmu.getChildren());
+//		System.out.println("获取完毕");
+		return "showIndexList_success";
 	}
 	//显示文章列表 (标题、时间)
 	public String showArticleList(){
@@ -293,6 +305,12 @@ public class NewsAction extends ActionSupport {
 	}
 	public void setDetaileArticle(Article detaileArticle) {
 		this.detaileArticle = detaileArticle;
+	}
+	public List<Article> getArticles() {
+		return articles;
+	}
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
 	}
 	
 }
