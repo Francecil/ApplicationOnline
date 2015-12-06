@@ -90,6 +90,7 @@
             /admin/**;/listadmin.html*;/admin-*
             /ckeditor/**
             /ckfinder/**
+            /articleManage*
         </param-value>
 		</init-param>
 	</filter>

@@ -1,6 +1,8 @@
 package com.france.action;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,8 @@ public class UserAction extends ActionSupport {
 	private UserService userService;
 	List<BaseApplication> submitList;
 	List<BaseApplication> noSubmitList;
+	private String filename;
+	private String flen;
 	public String userlist(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -78,7 +82,15 @@ public class UserAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-
+	public String download(){
+		try {
+			getDownloadFile().toString();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "download_success";
+	}
 	//利用正则表达式判断是否为数字
 	public boolean isNumeric(String str)
     {
@@ -90,6 +102,12 @@ public class UserAction extends ActionSupport {
           }
           return true;
     }
+	public InputStream getDownloadFile() throws Exception  {   
+		//注意这个地方ServletActionContext.getServletContext().getRealPath("/Excels")+ "/"+name; 路径错误
+		File file = new File(ServletActionContext.getServletContext().getRealPath("/WEB-INF/file/" + filename));
+		        this.setFlen(String.valueOf(file.length()));
+		return ServletActionContext.getServletContext().getResourceAsStream ("/WEB-INF/file/"+filename);
+	}
 	public List<BaseApplication> getSubmitList() {
 		return submitList;
 	}
@@ -101,6 +119,18 @@ public class UserAction extends ActionSupport {
 	}
 	public void setNoSubmitList(List<BaseApplication> noSubmitList) {
 		this.noSubmitList = noSubmitList;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getFlen() {
+		return flen;
+	}
+	public void setFlen(String flen) {
+		this.flen = flen;
 	}
 
 }

@@ -36,8 +36,8 @@
 				<param name="fileUpload.maximumSize">10485760</param>
 			</interceptor-ref>
 		</action>
-		<action name="download" class="download">
-			<result name="success" type="stream">
+		<action name="download" method="download" class="userAction">
+			<result name="download_success" type="stream">
 				<!-- 动态文件下载的，事先并不知道未来的文件类型，那么我们可以把它的值设置成为：application/octet-stream;charset=ISO8859-1 
 					，注意一定要加入charset，否则某些时候会导致下载的文件出错； -->
 				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
@@ -208,12 +208,22 @@
 				</param>
 			</result>
 			<result name="showArticleList_success">/list.jsp</result>
-			<result name="showArticleDetail_success">/detail.jsp</result>
+			<result name="showArticleDetail_success">/WEB-INF/detail.jsp</result>
 			<result name="showArticleDetail_nofind">/error/404.jsp</result>
 		</action>
 		<action name="admin-*" method="{1}" class="newsAction">
-			<param name="savePath">/resources/files</param>
-			<result name="success">/listadmin.jsp</result>
+			<result name="articleSubmitSuccess" type="json">
+				<param name="root">
+					dataMap
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
+		</action>
+		<action name="articleManage" method="articleManage" class="adminAction">
+			<result name="articleManage">/WEB-INF/upload.jsp</result>
 		</action>
 	</package>
 </struts> 

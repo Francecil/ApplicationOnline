@@ -30,7 +30,6 @@ public class Article implements java.io.Serializable {
 	private String title;
 	private String content;
 	private String author;//发布者
-	private Set<Photo> photos = new HashSet<Photo>(0);
 	private Integer topicID;
 	private String publishTime;
 	@Id
@@ -48,18 +47,12 @@ public class Article implements java.io.Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@Column(length = 10000)
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	public Set<Photo> getPhotos() {
-		return photos;
-	}
-	public void setPhotos(Set<Photo> photos) {
-		this.photos = photos;
 	}
 	public String getAuthor() {
 		return author;

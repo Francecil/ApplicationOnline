@@ -38,6 +38,9 @@ public class AdminAction extends ActionSupport {
 		allApplications=userService.getAllUserApplicationList();//已提交的
 		return "adminlist_success";
 	}
+	public String articleManage(){
+		return "articleManage";
+	}
 	public String admin(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session=request.getSession();

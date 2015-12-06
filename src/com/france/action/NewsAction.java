@@ -9,11 +9,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
@@ -53,6 +56,7 @@ public class NewsAction extends ActionSupport {
 	private String savePath;
 	private int chunk;
 	private int chunks;
+	private Map<String,Object> dataMap;
 	//
 	@Resource
 	private NewsService newsService;
@@ -100,7 +104,14 @@ public class NewsAction extends ActionSupport {
 		//进入此页面将先进行权限的判断
 		int articleID=Integer.valueOf(request.getParameter("articleID"));
 		detaileArticle=newsService.findArticleByID(articleID);
-		if(detaileArticle==null)return "showArticleDetail_nofind";
+		if(detaileArticle==null){
+			System.out.println("没有找到文章");
+			return "showArticleDetail_nofind";
+		}
+		else{
+			System.out.println("找到文章了");
+			request.setAttribute("content", detaileArticle.getContent());
+		}
 		return "showArticleDetail_success";
 	}
 	//将文件片段整合到一起
@@ -164,12 +175,8 @@ public class NewsAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String submit() {
-		String filePath = ServletActionContext.getServletContext().getRealPath(
-				this.getSavePath());
-		System.out.println("保存文件路径： " + filePath);
+	public String articleSubmit() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		int count = Integer.parseInt(request.getParameter("uploader_count"));
 		HttpSession session=request.getSession();
 		User loginUser=(User)session.getAttribute(Config.SESSION_USER);
 //		Integer articleID=(Integer)session.getAttribute(Config.SESSION_ARTICLE);
@@ -179,27 +186,27 @@ public class NewsAction extends ActionSupport {
 //		}
 		String title=request.getParameter("title").trim();
 		String content=request.getParameter("content").trim();
+		System.out.println("content:"+content);
 		//3级列表框
-		int three=Integer.parseInt(request.getParameter("three"));
-		int tow=Integer.parseInt(request.getParameter("tow"));
-		int one=Integer.parseInt(request.getParameter("one"));
-		int topic=getTopicID(one,tow,three);
+		int topic=Integer.parseInt(request.getParameter("lanmuid"));
 		Article acticle=new Article();
 		acticle.setContent(content);
 		acticle.setTitle(title);
 		acticle.setAuthor(loginUser.getUname());
 		acticle.setTopicID(topic);
 		acticle.setPublishTime(ConvertUtil.getTime());
-		for (int i = 0; i < count; i++) {
-			uploadFileName = request.getParameter("uploader_" + i + "_name");
-			name = request.getParameter("uploader_" + i + "_tmpname");
-			System.out.println(uploadFileName + " " + name);
-			Photo p=new Photo();
-			p.setSavename(name);
-			newsService.savePhoto(p);
-			acticle.getPhotos().add(p);
-		}
+//		for (int i = 0; i < count; i++) {
+//			uploadFileName = request.getParameter("uploader_" + i + "_name");
+//			name = request.getParameter("uploader_" + i + "_tmpname");
+//			System.out.println(uploadFileName + " " + name);
+//			Photo p=new Photo();
+//			p.setSavename(name);
+//			newsService.savePhoto(p);
+//			acticle.getPhotos().add(p);
+//		}
 		newsService.saveArticle(acticle);
+		dataMap=new HashMap<String,Object>();
+		dataMap.put("articleID", acticle.getId());
 		//一系列操作用一个service实现，可回滚;
 //		try {
 //			newsService.updateLanmuByAddArticle(lanmu, acticle);
@@ -213,7 +220,7 @@ public class NewsAction extends ActionSupport {
 //		lanmu.setArticles(articles);
 ////		lanmu.getArticles().add(acticle);//will error:failed to lazily initialize a collection of role:
 //		newsService.updateLanmu(lanmu);
-		return SUCCESS;
+		return "articleSubmitSuccess";
 	}
 	//得到根栏目的ID
 	public int getTopicID(int one,int tow,int three){
@@ -311,6 +318,12 @@ public class NewsAction extends ActionSupport {
 	}
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+	public Map<String, Object> getDataMap() {
+		return dataMap;
+	}
+	public void setDataMap(Map<String, Object> dataMap) {
+		this.dataMap = dataMap;
 	}
 	
 }
