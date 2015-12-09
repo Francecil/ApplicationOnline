@@ -20,5 +20,10 @@ public interface NewsService {
 	public void updateLanmu(Lanmu lm);
 	public List<Article> getAllChildLanmuArticleByPage(Lanmu parentLanmu,Integer pageNum);
 	public List<Article> getAllChildLanmuArticleInIndex(Lanmu parentLanmu,Integer pageCount);
+	public List<Article> findAllArticlesTOManage();
 	public Article findArticleByID(Integer id);
+	public Lanmu getLanmuByID(Integer id);
+	public String getParAndCurSplitArticleID(Integer id);
+	public void deleteArticle(Integer id);
+	public void updateArticle(Article a);
 }

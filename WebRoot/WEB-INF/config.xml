@@ -18,7 +18,7 @@
 	http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir
 	-->
 	<baseDir></baseDir>
-	<baseURL>http://127.0.0.1:8888/ApplicationOnline/resource/</baseURL>
+	<baseURL>/ApplicationOnline/resource/</baseURL>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>
 	<!--

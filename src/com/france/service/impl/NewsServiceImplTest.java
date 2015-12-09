@@ -82,7 +82,7 @@ public class NewsServiceImplTest {
 		Lanmu root=service.findAllChildrenLanmu(1);
 		System.out.println(root.getParentLanmu());//得到null
 		System.out.println("get root ok");
-		Set<Lanmu> c1=root.getChildren();
+		List<Lanmu> c1=root.getChildren();
 		Iterator iter=c1.iterator();
 		while(iter.hasNext()){
 			Lanmu l= (Lanmu)iter.next();

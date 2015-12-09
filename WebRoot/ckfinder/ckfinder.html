@@ -109,7 +109,7 @@
 					{
 						config.selectActionFunction = function( fileUrl, data )
 						{
-							parentWindow['CKEDITOR'].tools.callFunction( funcNum, fileUrl, data );
+							parentWindow['CKEDITOR'].tools.callFunction( funcNum, decodeURIComponent(fileUrl), data );
 						};
 
 						config.selectThumbnailActionFunction = config.selectActionFunction;

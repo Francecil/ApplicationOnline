@@ -27,7 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<h1>Admission application system</h1>
 			<div class="rightTop">
 			<div>welcome,<span id="user"><s:property value="#session.User.uname"/></span></div>
-			<div style="line-height:50px;"><a href="list.html"><<-back</a></div>
 			</div>
 		</div>
 		<div class="content">

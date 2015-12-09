@@ -102,14 +102,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				Current Position:
 				<%
 				String currentPosition = "";
-				Lanmu currentLanmu = (Lanmu)request.getAttribute("currentLanmu");
+				Lanmu currentLanmu = (Lanmu)request.getAttribute("currentLanmu");//注意此处获取非null才可后台要赋值
 				currentPosition+="<a href='news-showArticleList.action?lmid="+currentLanmu.getId()+"'>"+currentLanmu.getName()+"</a>";
 				Lanmu lanmuTemp=currentLanmu.getParentLanmu();
 				while(lanmuTemp!=null){
+					if(lanmuTemp.getParentLanmu()!=null){
 					currentPosition="<a href='news-showArticleList.action?lmid="+lanmuTemp.getId()+"'>"+lanmuTemp.getName()+"</a>|"+currentPosition;
+					}
 					lanmuTemp=lanmuTemp.getParentLanmu();
 				}
-				if(currentLanmu.getParentLanmu()!=null)
 				%>
 				<%=currentPosition%>
 				</div>
@@ -122,87 +123,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- 
 					<li><a href="">Studying costs in Fuzhou University</a><span>2015/11/14</span></li>
 					<li><a href="">Measures of Annual Review of Chinese Government Scholarship Status</a><span>2015/11/14</span></li>
-					<li><a href="">3</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
-					<li><a href="">4</a><span>2015/11/14</span></li>
-					<li><a href="">5</a><span>2015/11/14</span></li>
-					<li><a href="">6</a><span>2015/11/14</span></li>
-					<li><a href="">7</a><span>2015/11/14</span></li>
-					<li><a href="">8</a><span>2015/11/14</span></li>
-					<li><a href="">9</a><span>2015/11/14</span></li>
-					<li><a href="">10</a><span>2015/11/14</span></li>
-					<li><a href="">11</a><span>2015/11/14</span></li>
-					<li><a href="">12</a><span>2015/11/14</span></li>
-					<li><a href="">13</a><span>2015/11/14</span></li>
 					 -->
 				</ul>
 				<div class="holder"></div>

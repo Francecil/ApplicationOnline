@@ -22,6 +22,14 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<filter>
+		<filter-name>myEncodingFilter</filter-name>
+		<filter-class>com.france.filter.EncodeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>myEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
@@ -57,6 +65,7 @@
             /plupload/**
             /news-**
             /detailTest.jsp
+            /resource/**
         </param-value>
 		</init-param>
 		<init-param>
@@ -66,6 +75,7 @@
             /listuser.jsp*;/step.jsp*;
             /finished-view.html*;/listadmin.jsp*
             /fileAction-*
+            /download*
         </param-value>
 		</init-param>
 	</filter>
@@ -90,7 +100,9 @@
             /admin/**;/listadmin.html*;/admin-*
             /ckeditor/**
             /ckfinder/**
-            /articleManage*
+            /editArticle*
+            /deleteArticle*
+            /articleManage.action*
         </param-value>
 		</init-param>
 	</filter>

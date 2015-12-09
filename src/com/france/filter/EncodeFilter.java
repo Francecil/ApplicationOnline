@@ -21,28 +21,31 @@ import javax.servlet.http.HttpSession;
  * @author France
  *
  */
-public class EncodeFilter extends BaseFilter{
+public class EncodeFilter implements Filter{
 	
 	//存init-param
 	String encodeCoding="";
 	 // 实现初始化方法 
-	@Override
-    public void init()throws ServletException { 
-        encodeCoding =getConfig().getInitParameter("EncodeCoding");
+	public void init(FilterConfig arg0) throws ServletException {
+        // TODO Auto-generated method stub
+         
     }
     // 实现销毁方法 
     public void destroy() { 
     } 
-
-    @Override  
-    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)  
-        throws IOException, ServletException {  
-        System.out.println("==============");
-    	request.setCharacterEncoding(encodeCoding);
-    	response.setCharacterEncoding(encodeCoding);
-    	 System.out.println("EncodeFilter doFilter");
-        chain.doFilter(request, response);
-       
-    } 
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response,
+            FilterChain fc) throws IOException, ServletException {
+        // TODO Auto-generated method stub
+    	System.out.println(request.getServerName());
+    	HttpServletRequest httpRequest = (HttpServletRequest) request;  
+    	System.out.println("进行编码前路径:"+httpRequest.getServletPath());
+    	httpRequest.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("utf-8");   
+         response.setCharacterEncoding("utf-8");   
+         System.out.println("进行编码前路径:"+httpRequest.getServletPath());
+         fc.doFilter(request,response);   
+         
+    }
 
 }

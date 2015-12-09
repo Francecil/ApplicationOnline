@@ -118,4 +118,47 @@ public class NewsServiceImpl implements NewsService{
 //		articleDAO.find(hql, new Object[]{}, pageNum, Config.PAGE_SIZE);//按分页加载
 		return articleDAO.find(hql, new Object[]{}, 1, pageCount);
 	}
+
+	@Override
+	public List<Article> findAllArticlesTOManage() {
+		// TODO Auto-generated method stub
+		String hql="select new Article(a.id,a.title,a.author,a.publishTime,a.topicID) from Article as a order by a.publishTime desc";
+		return articleDAO.find(hql);
+	}
+
+	@Override
+	public Lanmu getLanmuByID(Integer id) {
+		// TODO Auto-generated method stub
+		return lanmuDAO.get(Lanmu.class, id);
+	}
+
+	@Override
+	public void deleteArticle(Integer id) {
+		// TODO Auto-generated method stub
+		Article article=articleDAO.get(Article.class, id);
+		if(article!=null)articleDAO.delete(article);
+	}
+
+	@Override
+	public void updateArticle(Article a) {
+		// TODO Auto-generated method stub
+		articleDAO.update(a);
+	}
+
+	@Override
+	public String getParAndCurSplitArticleID(Integer id) {
+		// TODO Auto-generated method stub
+		Lanmu lanmu=lanmuDAO.find("from Lanmu lm where lm.id = ?",new Object[]{id}).get(0);
+		String lanmuSplit="";
+		lanmuSplit=""+lanmu.getId().toString();
+		while(true){
+			Lanmu par=lanmu.getParentLanmu();
+			if(par==null)break;
+			else{
+				lanmuSplit=par.getId().toString()+"|"+lanmuSplit;
+				lanmu=par;
+			}
+		}
+		return lanmuSplit;
+	}
 }

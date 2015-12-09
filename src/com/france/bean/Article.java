@@ -86,4 +86,12 @@ public class Article implements java.io.Serializable {
 	}
 	public Article() {
 	}
+	public Article(Integer id, String title,String author,String publishTime,Integer topicID) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author=author;
+		this.publishTime = publishTime;
+		this.topicID=topicID;
+	}
 }

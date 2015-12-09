@@ -1,6 +1,7 @@
 package com.france.bean;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -33,7 +34,7 @@ public class Lanmu implements java.io.Serializable {
 	private String description;
 	private Lanmu parentLanmu;
 	private Integer level;
-	private Set<Lanmu> children = new HashSet<Lanmu>(0);
+	private List<Lanmu> children = new ArrayList<Lanmu>(0);
 	public Lanmu() {
 
 	}
@@ -79,12 +80,14 @@ public class Lanmu implements java.io.Serializable {
 		this.level = level;
 	}
 	@OneToMany(targetEntity=Lanmu.class, mappedBy="parentLanmu", cascade=CascadeType.ALL, fetch = FetchType.EAGER)  
-//    @OrderBy("name")
-	public Set<Lanmu> getChildren() {
+	@OrderBy("id")
+	public List<Lanmu> getChildren() {
 		return children;
 	}
-	public void setChildren(Set<Lanmu> children) {
+
+	public void setChildren(List<Lanmu> children) {
 		this.children = children;
 	}
+	
 
 }

@@ -175,53 +175,6 @@ public class NewsAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String articleSubmit() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session=request.getSession();
-		User loginUser=(User)session.getAttribute(Config.SESSION_USER);
-//		Integer articleID=(Integer)session.getAttribute(Config.SESSION_ARTICLE);
-//		if(articleID==null){
-//			//新建文章，存入session
-//			
-//		}
-		String title=request.getParameter("title").trim();
-		String content=request.getParameter("content").trim();
-		System.out.println("content:"+content);
-		//3级列表框
-		int topic=Integer.parseInt(request.getParameter("lanmuid"));
-		Article acticle=new Article();
-		acticle.setContent(content);
-		acticle.setTitle(title);
-		acticle.setAuthor(loginUser.getUname());
-		acticle.setTopicID(topic);
-		acticle.setPublishTime(ConvertUtil.getTime());
-//		for (int i = 0; i < count; i++) {
-//			uploadFileName = request.getParameter("uploader_" + i + "_name");
-//			name = request.getParameter("uploader_" + i + "_tmpname");
-//			System.out.println(uploadFileName + " " + name);
-//			Photo p=new Photo();
-//			p.setSavename(name);
-//			newsService.savePhoto(p);
-//			acticle.getPhotos().add(p);
-//		}
-		newsService.saveArticle(acticle);
-		dataMap=new HashMap<String,Object>();
-		dataMap.put("articleID", acticle.getId());
-		//一系列操作用一个service实现，可回滚;
-//		try {
-//			newsService.updateLanmuByAddArticle(lanmu, acticle);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			System.out.println("出错，检查事务是否回滚");
-//		}
-//		Set<Article> articles=lanmu.getArticles();
-//		articles.add(acticle);
-//		lanmu.setArticles(articles);
-////		lanmu.getArticles().add(acticle);//will error:failed to lazily initialize a collection of role:
-//		newsService.updateLanmu(lanmu);
-		return "articleSubmitSuccess";
-	}
 	//得到根栏目的ID
 	public int getTopicID(int one,int tow,int three){
 		if(three!=-1)return three;

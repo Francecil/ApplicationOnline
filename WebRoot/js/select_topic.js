@@ -1,7 +1,7 @@
 $(document).ready(function(){
         $(".selectList").each(function(){
 //            var url = "/ApplicationOnline/json/area2.json";
-        	var url="news-showRootLanmu.action"
+        	var url="news-showRootLanmu.action";
             var areaJson;
             var temp_html;
             var oProvince = $(this).find(".province");
@@ -53,5 +53,8 @@ $(document).ready(function(){
                 province();
             });
         });
+		var lanmuID="<s:property value="editArticle.topicID"/>";
+		alert(lanmuID);
+		$("#one").val(lanmuID);
 });
 

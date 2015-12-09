@@ -42,7 +42,7 @@
 			style="width:978px;min-height:253px;margin-left:auto;margin-right:auto;">
 			<div class="column_1"
 				style="width:351px;height:253px;float:left;margin-top:11px;background:url(./img/b4.jpg) repeat;">
-				<a href="" id="lanmu1" style="font-weight:bold;color:#a42517;margin-left: 12px;margin-top:11px;line-height: 30px;">XXX_1</a>
+				<a href="" id="lanmu1" style="font-weight:bold;color:#a42517;margin-left: 12px;margin-top:11px;line-height: 30px;">Introduction</a>
 				<ul id="articlesOne" style="width:330px;height:200px;margin-left:12px;">
 
 
@@ -50,7 +50,7 @@
 			</div>
 			<div class="column_2"
 				style="width:347px;height:253px;float:left;margin-top:11px;margin-left:5px;background:url(./img/b4.jpg) repeat;">
-				<a href="" id="lanmu2" style="font-weight:bold;color:#a42517;margin-left: 12px;margin-top:11px;line-height: 30px;">XXX_2</a>
+				<a href="" id="lanmu2" style="font-weight:bold;color:#a42517;margin-left: 12px;margin-top:11px;line-height: 30px;">Application for admission</a>
 				<ul id="articlesTwo" style="width:330px;height:200px;margin-left:12px;">
 				</ul>
 			</div>

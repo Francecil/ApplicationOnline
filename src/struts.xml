@@ -211,7 +211,7 @@
 			<result name="showArticleDetail_success">/WEB-INF/detail.jsp</result>
 			<result name="showArticleDetail_nofind">/error/404.jsp</result>
 		</action>
-		<action name="admin-*" method="{1}" class="newsAction">
+		<action name="admin-*" method="{1}" class="adminAction">
 			<result name="articleSubmitSuccess" type="json">
 				<param name="root">
 					dataMap
@@ -221,9 +221,17 @@
 					true
 				</param>
 			</result>
-		</action>
-		<action name="articleManage" method="articleManage" class="adminAction">
-			<result name="articleManage">/WEB-INF/upload.jsp</result>
+			<result name="articleManageSuccess">/WEB-INF/articleManage.jsp</result>
+			<result name="editArticleSuccess">/WEB-INF/upload.jsp</result>
+			<result name="deleteArticle_success" type="json">
+				<param name="root">
+					rootLanmu
+				</param>
+				<!-- json 不产生null -->
+				<param name="excludeNullProperties">
+					true
+				</param>
+			</result>
 		</action>
 	</package>
 </struts> 

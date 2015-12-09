@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="rightTop">
 			<div>welcome,<span id="user"> <s:property value="#session.User.uname"/></span></div>
 			<div style="line-height:50px;"><a href="./"><<-back</a></div>
-			<div style="line-height:50px;"><a href="articleManage.action">ArticleManage</a></div>
+			<div style="line-height:50px;"><a href="admin-articleManage.action">ArticleManage</a></div>
 			</div>
 		</div>
 		<div class="content">
